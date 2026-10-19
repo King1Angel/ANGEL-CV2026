@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ing. Angel Peña | Curriculum Vitae & Technical Profile 2026</title>
+  <meta name="description" content="Curriculum Vitae Web de Angel Peña. AI Solutions Engineer, Platform Automation & Software Architect.">
+  
+  <!-- Fonts: Instrument Serif + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* 
+      WARM FORMAL PALETTE: OCHRE, AMBER, TERRACOTTA & WARM ESPRESSO
+      Design Tokens & CSS Variables
+    */
+    :root {
+      /* Backgrounds */
+      --bg-canvas: #0f0d0b;           /* Deep Warm Espresso base */
+      --bg-surface: #181411;          /* Warm Roasted Cacao */
+      --bg-card: rgba(28, 23, 19, 0.75); /* Frosted Dark Amber / Ochre container */
+      --bg-card-hover: rgba(36, 30, 24, 0.95);
+      --bg-inset: #120f0d;
+
+      /* Primary Ochre & Amber Accents */
+      --ochre-primary: #d97706;       /* Radiant Amber */
+      --ochre-warm: #b45309;          /* Deep Ochre Earth */
+      --ochre-light: #f59e0b;         /* Sunlit Amber */
+      --ochre-glow: rgba(217, 119, 6, 0.18);
+      --ochre-subtle: rgba(217, 119, 6, 0.08);
+
+      /* Supporting Tones */
+      --terracotta: #c2410c;          /* Warm Terracotta */
+      --sage-muted: #10b981;          /* Subtle verified green */
+
+      /* Typography & Neutral Readability */
+      --text-main: #fdfaf7;           /* Warm Alabaster */
+      --text-muted: #b5aba1;          /* Muted Oat / Warm Taupe */
+      --text-dim: #7d7268;            /* Weathered Stone */
+
+      /* Borders & Dividers */
+      --border-warm: rgba(217, 119, 6, 0.22);
+      --border-subtle: rgba(255, 245, 235, 0.08);
+      --border-active: rgba(245, 158, 11, 0.55);
+
+      /* Typography Stacks */
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      text-align: start;
+      overflow-x: hidden;
+      /* Subtle warm grain gradient */
+      background-image: 
+        radial-gradient(circle at 10% 12%, rgba(217, 119, 6, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 88% 30%, rgba(180, 83, 9, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(194, 65, 12, 0.06) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Modern text wrap rules (per modern web guidance) */
+    h1, h2, h3, h4, th {
+      text-wrap: balance;
+    }
+    p, li {
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Top Navigation / Action Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(15, 13, 11, 0.82);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--sage-muted);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--sage-muted);
+    }
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border-color: var(--border-subtle);
+    }
+    .btn-ghost:hover {
+      color: var(--text-main);
+      border-color: var(--border-warm);
+      background: var(--ochre-subtle);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ochre-primary), var(--ochre-warm));
+      color: #0f0d0b;
+      box-shadow: 0 4px 14px var(--ochre-glow);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--ochre-light), var(--ochre-primary));
+      transform: translateY(-1px);
+    }
+
+    /* Hero / Profile Header */
+    .hero {
+      padding: 70px 0 50px;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ochre-light);
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 2rem + 3.5vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ochre-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--ochre-subtle);
+      border: 1px solid var(--border-warm);
+      color: var(--ochre-light);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .hero-bio {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 65ch;
+      margin-bottom: 28px;
+    }
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .chip:hover {
+      color: var(--ochre-light);
+      border-color: var(--border-warm);
+      background: var(--ochre-subtle);
+    }
+    .chip i {
+      color: var(--ochre-primary);
+    }
+
+    /* Monogram / Avatar Seal */
+    .avatar-seal {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--border-warm);
+      background: radial-gradient(circle at 30% 30%, #2b221a 0%, #15110d 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(217, 119, 6, 0.15);
+      position: relative;
+    }
+    .avatar-monogram {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      color: var(--ochre-light);
+      line-height: 1;
+    }
+    .avatar-year {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 55px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ochre-warm);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+      margin-left: 12px;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--text-main);
+      margin-bottom: 30px;
+    }
+
+    /* Highlight Metrics Bento */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ochre-warm), var(--ochre-light));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .metric-card:hover {
+      border-color: var(--border-warm);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .metric-card:hover::before {
+      opacity: 1;
+    }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .metric-value span {
+      color: var(--ochre-primary);
+    }
+    .metric-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Timeline / Work Experience */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .timeline-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .timeline-item:hover {
+      border-color: var(--border-warm);
+      background: var(--bg-card-hover);
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .timeline-role {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .timeline-company {
+      color: var(--ochre-light);
+      font-weight: 500;
+    }
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      background: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .timeline-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .timeline-achievements {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .timeline-achievements li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .timeline-achievements li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--ochre-warm);
+      font-size: 0.75rem;
+      top: 3px;
+    }
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+    .skill-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .skill-card h4 i {
+      color: var(--ochre-primary);
+    }
+    .skill-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .skill-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+      padding-bottom: 6px;
+    }
+    .skill-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .skill-level {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ochre-light);
+    }
+
+    /* Projects Spotlight */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .project-card:hover {
+      border-color: var(--border-warm);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .project-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .project-card h3 a:hover {
+      color: var(--ochre-light);
+    }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ochre-light);
+      text-decoration: none;
+      margin-top: 14px;
+      font-weight: 500;
+    }
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Education & Certs */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+    .edu-year {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ochre-warm);
+      margin-bottom: 6px;
+    }
+    .edu-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .edu-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 50px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+    .footer-stamp {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .avatar-seal { order: -1; margin-bottom: 10px; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Print Styles (Per Modern Web Guidance) */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .top-bar, .btn-primary, .avatar-seal {
+        display: none !important;
+      }
+      .timeline-item, .metric-card, .skill-card, .project-card, .edu-card {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        break-inside: avoid;
+      }
+      h1, h2, h3, h4 {
+        color: #000 !important;
+      }
+      .timeline-desc, .project-desc, .metric-label, p, li {
+        color: #333 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar / Actions -->
+  <header class="top-bar">
+    <div class="container nav-inner">
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span>Disponible para Nuevos Proyectos & Roles 2026</span>
+      </div>
+      <div class="nav-actions">
+        <a href="https://github.com/King1Angel" target="_blank" class="btn btn-ghost">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <button onclick="window.print()" class="btn btn-primary">
+          <i class="fa-solid fa-file-pdf"></i> Imprimir / Guardar PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero / Profile Identity -->
+    <section class="hero">
+      <div class="hero-layout">
+        <div>
+          <span class="hero-eyebrow">// RESUME & TECHNICAL PORTFOLIO • 2026 EDITION</span>
+          <h1>Ing. Angel Peña</h1>
+          <div class="hero-title">
+            <span>AI Solutions Engineer & Automation Architect</span>
+            <span class="hero-badge">Full-Stack Platform Engineering</span>
+          </div>
+          <p class="hero-bio">
+            Especialista en arquitectura de agentes autónomos, orquestación de sistemas distribuidos y automatización de procesos empresariales. Diseñador de ecosistemas resilientes que combinan modelos de lenguaje de última generación con infraestructura cloud de alta disponibilidad.
+          </p>
+
+          <div class="contact-chips">
+            <span class="chip"><i class="fa-solid fa-location-dot"></i> Quintana Roo, México</span>
+            <a href="mailto:tu-correo@dominio.com" class="chip"><i class="fa-solid fa-envelope"></i> Contacto Directo</a>
+            <a href="https://github.com/King1Angel" target="_blank" class="chip"><i class="fa-brands fa-github"></i> github.com/King1Angel</a>
+            <span class="chip"><i class="fa-solid fa-shield-halved"></i> English & Spanish (Bilingual)</span>
+          </div>
+        </div>
+
+        <div class="avatar-seal">
+          <div class="avatar-monogram">AP</div>
+          <div class="avatar-year">EST. 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics Bento -->
+    <section>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value">25<span>+</span></div>
+          <div class="metric-label">Herramientas de IA Diseñadas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">10<span>+</span></div>
+          <div class="metric-label">Flujos de Orquestación Activos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">99.9<span>%</span></div>
+          <div class="metric-label">Uptime en Azure Cloud VM</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">100<span>%</span></div>
+          <div class="metric-label">Enfoque en Código Limpio y Seguro</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+      <div class="section-eyebrow">Trayectoria Profesional</div>
+      <h2 class="section-heading">Experiencia Laboral</h2>
+
+      <div class="timeline">
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Arquitecto de Agentes de IA & Automatización</span>
+              <span class="timeline-company"> · Proyecto Independiente / Consultoría</span>
+            </div>
+            <span class="timeline-period">2024 — Presente</span>
+          </div>
+          <p class="timeline-desc">
+            Diseño, despliegue y mantenimiento de infraestructura de agentes conversacionales inteligentes con capacidades ReAct, auto-reparación en caliente y sincronización multiplataforma.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Implementación de un ecosistema de 10 flujos en n8n integrando Google Gemini y memoria buffer de ventana con tolerancia a fallos.</li>
+            <li>Desarrollo de subflujo desacoplado para procesamiento y extracción de datos desde hojas de cálculo binarias (.xlsx/.csv).</li>
+            <li>Configuración de pipeline de DevOps auto-sanador con monitoreo directo a bases de datos SQLite en contenedores Docker sobre Azure.</li>
+          </ul>
+          <div class="tag-cloud">
+            <span class="tag-badge">n8n Enterprise</span>
+            <span class="tag-badge">LangChain ReAct</span>
+            <span class="tag-badge">Google Gemini API</span>
+            <span class="tag-badge">Docker</span>
+            <span class="tag-badge">Microsoft Azure</span>
+            <span class="tag-badge">Python</span>
+            <span class="tag-badge">REST APIs</span>
+          </div>
+        </div>
+
+        <!-- Experience 2 (Editable Placeholder for Angel) -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">[Puesto / Rol Anterior]</span>
+              <span class="timeline-company"> · [Empresa / Institución]</span>
+            </div>
+            <span class="timeline-period">[Año Inicio — Año Fin]</span>
+          </div>
+          <p class="timeline-desc">
+            [Descripción general de tus responsabilidades principales, objetivos alcanzados y contexto del rol dentro de la empresa].
+          </p>
+          <ul class="timeline-achievements">
+            <li>[Logro cuantificable o hito técnico: ej. reducción de tiempos de procesamiento, automatización de tareas críticas o desarrollo de módulos].</li>
+            <li>[Colaboración interdisciplinaria, liderazgo de proyecto o integración de nuevas herramientas tecnológicas].</li>
+          </ul>
+          <div class="tag-cloud">
+            <span class="tag-badge">[Tecnología 1]</span>
+            <span class="tag-badge">[Tecnología 2]</span>
+            <span class="tag-badge">[Tecnología 3]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Matrix -->
+    <section id="skills">
+      <div class="section-eyebrow">Competencias Técnicas</div>
+      <h2 class="section-heading">Habilidades & Tecnologías</h2>
+
+      <div class="skills-grid">
+        <!-- Category 1 -->
+        <div class="skill-card">
+          <h4><i class="fa-solid fa-brain"></i> IA & Orquestación</h4>
+          <div class="skill-items">
+            <div class="skill-entry"><span>LangChain / ReAct Pattern</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Google Gemini 1.5 / Flash</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>n8n Enterprise Automation</span><span class="skill-level">Experto</span></div>
+            <div class="skill-entry"><span>Prompt Engineering & Memory</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Human-in-the-Loop Protocols</span><span class="skill-level">Avanzado</span></div>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="skill-card">
+          <h4><i class="fa-solid fa-server"></i> Backend & Cloud</h4>
+          <div class="skill-items">
+            <div class="skill-entry"><span>Python / Node.js</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Docker & Containers</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Microsoft Azure VMs</span><span class="skill-level">Intermedio-Avanzado</span></div>
+            <div class="skill-entry"><span>SQLite / PostgreSQL</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Reverse Proxy (Caddy/Nginx)</span><span class="skill-level">Intermedio</span></div>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="skill-card">
+          <h4><i class="fa-solid fa-laptop-code"></i> Frontend & Metodologías</h4>
+          <div class="skill-items">
+            <div class="skill-entry"><span>HTML5 / Modern CSS / JS</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Angular / Web Components</span><span class="skill-level">Intermedio</span></div>
+            <div class="skill-entry"><span>Git / GitHub CI & CD</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>OAuth2 / API Security</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Reverse Engineering (REA)</span><span class="skill-level">Intermedio</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects">
+      <div class="section-eyebrow">Portafolio Seleccionado</div>
+      <h2 class="section-heading">Proyectos Destacados</h2>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>Ecosistema de Agentes n8n</span>
+              <i class="fa-solid fa-network-wired text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Plataforma de agentes autónomos con 25+ herramientas, auto-sanador de workflows en caliente, manejo de Google Workspace completo y procesamiento de hojas de cálculo binarias en Azure.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">n8n</span>
+              <span class="tag-badge">Gemini</span>
+              <span class="tag-badge">Docker</span>
+              <span class="tag-badge">Self-Healing</span>
+            </div>
+            <a href="https://github.com/King1Angel/n8n-architecture-showcase" target="_blank" class="project-link">
+              Ver Showcase Técnico <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>Reverse Engineer Anything (REA)</span>
+              <i class="fa-solid fa-cube text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Pipeline de ingeniería inversa y análisis de software compilado, automatización de decompilación y extracción de lógica binaria para análisis de seguridad y compatibilidad.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">C++</span>
+              <span class="tag-badge">Reverse Engineering</span>
+              <span class="tag-badge">Ghidra</span>
+              <span class="tag-badge">Assembly</span>
+            </div>
+            <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link">
+              Repositorio Privado <i class="fa-solid fa-lock"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <div class="section-eyebrow">Formación Académica</div>
+      <h2 class="section-heading">Educación & Certificaciones</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-year">Formación Profesional</div>
+          <h4>Ingeniería [Título de tu Carrera]</h4>
+          <p>[Universidad o Instituto Tecnológico, Ej. Instituto Tecnológico de Cancún / Universidad]</p>
+          <p style="margin-top: 6px; font-size: 0.82rem; color: var(--text-dim);">Quintana Roo, México</p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-year">Certificaciones & Especializaciones</div>
+          <h4>Especialista en Automatización & Cloud</h4>
+          <p>Orquestación de workflows empresariales, integración de LLMs en entornos productivos y arquitecturas de microservicios.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-stamp">Ing. Angel Peña</div>
+      <p>© 2026 Curriculum Vitae Web · Diseñado con precisión editorial, ocre y ámbar.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
