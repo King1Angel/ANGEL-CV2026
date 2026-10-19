@@ -637,6 +637,65 @@
       color: var(--text-muted);
     }
 
+    /* Certification Card & Image Previews */
+    .cert-item {
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 20px;
+      margin-bottom: 16px;
+    }
+    .cert-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    .cert-preview-link {
+      display: block;
+      text-decoration: none;
+      margin: 10px 0 12px;
+      position: relative;
+    }
+    .cert-preview-wrapper {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-warm);
+      background: #14100d;
+      transition: all 0.25s ease;
+    }
+    .cert-preview-wrapper:hover {
+      border-color: var(--ochre-light);
+      box-shadow: 0 6px 20px var(--ochre-glow);
+    }
+    .cert-preview-img {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      filter: brightness(0.95);
+    }
+    .cert-preview-wrapper:hover .cert-preview-img {
+      transform: scale(1.025);
+      filter: brightness(1.04);
+    }
+    .cert-preview-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(13, 11, 10, 0.88);
+      border: 1px solid var(--border-warm);
+      color: var(--ochre-light);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+    }
+
     /* Footer */
     footer {
       padding: 50px 0;
@@ -805,6 +864,19 @@
         font-weight: normal !important;
         text-decoration: none !important;
         word-break: break-all !important;
+      }
+      .cert-preview-wrapper {
+        border: 1px solid #d1d5db !important;
+        margin: 8px 0 !important;
+        background: #fafafa !important;
+      }
+      .cert-preview-img {
+        height: 110px !important;
+        object-fit: contain !important;
+        filter: none !important;
+      }
+      .cert-preview-badge {
+        display: none !important;
       }
       @page {
         margin: 1.2cm;
@@ -1143,34 +1215,30 @@
           </div>
         </div>
 
-        <!-- Project 4: Reverse Engineering & Central de Ideas -->
+        <!-- Project 4: Análisis de Bases de Datos & Central de Ideas -->
         <div class="project-card">
           <div>
             <h3>
-              <span>Investigación en IA & REA</span>
-              <i class="fa-solid fa-microchip text-ochre"></i>
+              <span>Análisis de Bases de Datos (ECBD)</span>
+              <i class="fa-solid fa-database text-ochre"></i>
             </h3>
             <p class="project-desc">
-              Pipeline de ingeniería a la inversa (REA), orquestación de agentes con MCP (Model Context Protocol), y análisis de datos con Python en entornos Jupyter / Google Colab (Central de Ideas).
+              Extracción, estructuración y consulta analítica de bases de datos utilizando <strong>Python</strong> en entornos <strong>Google Colab</strong> y <strong>Jupyter Notebooks</strong>. Integración de prácticas de laboratorio y reportes técnicos (ECBD), complementado con orquestación de agentes, flujos automatizados (Workflows) y conexiones MCP (Central de Ideas).
             </p>
           </div>
           <div>
             <div class="tag-cloud">
+              <span class="tag-badge">Bases de Datos (ECBD)</span>
               <span class="tag-badge">Python / Colab</span>
-              <span class="tag-badge">MCP Protocol</span>
-              <span class="tag-badge">Ghidra</span>
-              <span class="tag-badge">Reverse Eng</span>
+              <span class="tag-badge">Jupyter Notebooks</span>
+              <span class="tag-badge">Consultas de Datos</span>
+              <span class="tag-badge">Workflows MCP</span>
             </div>
             <div class="project-links">
               <a href="https://drive.google.com/drive/folders/1ElJipHg3R0UzSswQyOKtylR0L4M0TQN0?usp=drive_link" target="_blank" class="project-link">
                 <i class="fa-solid fa-folder-open"></i>
-                <span>Ver Documentación</span>
+                <span>Ver Documentación (Google Drive)</span>
                 <span class="print-url">— https://drive.google.com/drive/folders/1ElJipHg3R0UzSswQyOKtylR0L4M0TQN0?usp=drive_link</span>
-              </a>
-              <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link link-badge-secondary">
-                <i class="fa-brands fa-github"></i>
-                <span>Repo REA</span>
-                <span class="print-url">— https://github.com/King1Angel/rea</span>
               </a>
             </div>
           </div>
@@ -1254,42 +1322,97 @@
 
         <!-- Certifications -->
         <div class="info-card">
-          <h3 style="font-size: 1.15rem; color: var(--ochre-light); margin-bottom: 4px;">
-            <i class="fa-solid fa-certificate"></i> Certificaciones Oficiales
-          </h3>
-          <div class="info-item">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">
+            <h3 style="font-size: 1.15rem; color: var(--ochre-light);">
+              <i class="fa-solid fa-certificate"></i> Certificaciones Oficiales
+            </h3>
+            <a href="https://drive.google.com/drive/folders/17Hyze1eTLKRfhVeH7ri-a30ARQ5V3zZw" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+              <i class="fa-solid fa-folder-open"></i>
+              <span>Carpeta Drive CV</span>
+              <span class="print-url">— https://drive.google.com/drive/folders/17Hyze1eTLKRfhVeH7ri-a30ARQ5V3zZw</span>
+            </a>
+          </div>
+
+          <!-- NDG Linux Essentials -->
+          <div class="cert-item">
             <div class="info-meta">Cisco Networking Academy · Sep 2023</div>
             <div class="info-title">Partner: NDG Linux Essentials</div>
             <div class="info-sub">Administración del sistema, línea de comandos bash y permisos.</div>
-            <div class="item-links" style="margin-top: 6px;">
-              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+            <a href="https://drive.google.com/file/d/14_XmPTSZSZm1usLK8OIxroxThWseOH-W/view?usp=drivesdk" target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+              <div class="cert-preview-wrapper">
+                <img src="assets/certs/cert_ndg_linux.png" alt="Certificado Partner: NDG Linux Essentials" class="cert-preview-img" loading="lazy">
+                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Drive</span>
+              </div>
+            </a>
+            <div class="item-links">
+              <a href="https://drive.google.com/file/d/14_XmPTSZSZm1usLK8OIxroxThWseOH-W/view?usp=drivesdk" target="_blank" class="link-badge">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Ver Certificado (Drive)</span>
+                <span class="print-url">— https://drive.google.com/file/d/14_XmPTSZSZm1usLK8OIxroxThWseOH-W/view?usp=drivesdk</span>
+              </a>
+              <a href="assets/certs/cert_ndg_linux.png" target="_blank" class="link-badge link-badge-secondary">
+                <i class="fa-solid fa-image"></i>
+                <span>Ver Imagen HD</span>
+              </a>
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary">
                 <i class="fa-solid fa-certificate"></i>
-                <span>Verificar Cisco NetAcad</span>
-                <span class="print-url">— https://www.netacad.com/</span>
+                <span>Verificar NetAcad</span>
               </a>
             </div>
           </div>
-          <div class="info-item">
+
+          <!-- CCNAv7 SRWE -->
+          <div class="cert-item">
             <div class="info-meta">Cisco Networking Academy · Jun 2023</div>
             <div class="info-title">CCNAv7: Switching, Routing, and Wireless Essentials</div>
             <div class="info-sub">Configuración de switches, VLANs, enrutamiento estático y redes inalámbricas.</div>
-            <div class="item-links" style="margin-top: 6px;">
-              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+            <a href="https://drive.google.com/file/d/1ic60nRq7iuiVCsHpxv_AUeP0gkb5bX6W/view?usp=drivesdk" target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+              <div class="cert-preview-wrapper">
+                <img src="assets/certs/cert_ccna_switching.png" alt="Certificado CCNAv7: Switching, Routing, and Wireless Essentials" class="cert-preview-img" loading="lazy">
+                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Drive</span>
+              </div>
+            </a>
+            <div class="item-links">
+              <a href="https://drive.google.com/file/d/1ic60nRq7iuiVCsHpxv_AUeP0gkb5bX6W/view?usp=drivesdk" target="_blank" class="link-badge">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Ver Certificado (Drive)</span>
+                <span class="print-url">— https://drive.google.com/file/d/1ic60nRq7iuiVCsHpxv_AUeP0gkb5bX6W/view?usp=drivesdk</span>
+              </a>
+              <a href="assets/certs/cert_ccna_switching.png" target="_blank" class="link-badge link-badge-secondary">
+                <i class="fa-solid fa-image"></i>
+                <span>Ver Imagen HD</span>
+              </a>
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary">
                 <i class="fa-solid fa-certificate"></i>
-                <span>Verificar Cisco NetAcad</span>
-                <span class="print-url">— https://www.netacad.com/</span>
+                <span>Verificar NetAcad</span>
               </a>
             </div>
           </div>
-          <div class="info-item">
+
+          <!-- CCNAv7 ITN -->
+          <div class="cert-item">
             <div class="info-meta">Cisco Networking Academy · Ene 2023</div>
             <div class="info-title">CCNAv7: Introduction to Networks</div>
             <div class="info-sub">Arquitectura de red, modelos OSI/TCP-IP, direccionamiento IPv4/IPv6 y subredes.</div>
-            <div class="item-links" style="margin-top: 6px;">
-              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+            <a href="https://drive.google.com/file/d/1iXAnrdDxPRKn7lAm-fW4iIGXwK3j8gF7/view?usp=drivesdk" target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+              <div class="cert-preview-wrapper">
+                <img src="assets/certs/cert_ccna_intro.png" alt="Certificado CCNAv7: Introduction to Networks" class="cert-preview-img" loading="lazy">
+                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Drive</span>
+              </div>
+            </a>
+            <div class="item-links">
+              <a href="https://drive.google.com/file/d/1iXAnrdDxPRKn7lAm-fW4iIGXwK3j8gF7/view?usp=drivesdk" target="_blank" class="link-badge">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Ver Certificado (Drive)</span>
+                <span class="print-url">— https://drive.google.com/file/d/1iXAnrdDxPRKn7lAm-fW4iIGXwK3j8gF7/view?usp=drivesdk</span>
+              </a>
+              <a href="assets/certs/cert_ccna_intro.png" target="_blank" class="link-badge link-badge-secondary">
+                <i class="fa-solid fa-image"></i>
+                <span>Ver Imagen HD</span>
+              </a>
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary">
                 <i class="fa-solid fa-certificate"></i>
-                <span>Verificar Cisco NetAcad</span>
-                <span class="print-url">— https://www.netacad.com/</span>
+                <span>Verificar NetAcad</span>
               </a>
             </div>
           </div>
