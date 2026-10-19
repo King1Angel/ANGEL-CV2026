@@ -3,55 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ing. Angel Peña | Curriculum Vitae & Technical Profile 2026</title>
-  <meta name="description" content="Curriculum Vitae Web de Angel Peña. AI Solutions Engineer, Platform Automation & Software Architect.">
+  <title>Ing. Miguel Angel Peña Pech | Curriculum Vitae & Technical Portfolio</title>
+  <meta name="description" content="Curriculum Vitae Profesional de Miguel Angel Peña Pech. Ingeniero en Desarrollo y Gestión de Software, Telecomunicaciones, Redes e Inteligencia Artificial.">
   
   <!-- Fonts: Instrument Serif + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
     /* 
       WARM FORMAL PALETTE: OCHRE, AMBER, TERRACOTTA & WARM ESPRESSO
-      Design Tokens & CSS Variables
+      Arquitectura CSS limpia, sin saturación visual
     */
     :root {
-      /* Backgrounds */
-      --bg-canvas: #0f0d0b;           /* Deep Warm Espresso base */
-      --bg-surface: #181411;          /* Warm Roasted Cacao */
-      --bg-card: rgba(28, 23, 19, 0.75); /* Frosted Dark Amber / Ochre container */
-      --bg-card-hover: rgba(36, 30, 24, 0.95);
+      /* Fondos */
+      --bg-canvas: #0d0b0a;
+      --bg-surface: #171311;
+      --bg-card: rgba(28, 23, 20, 0.75);
+      --bg-card-hover: rgba(38, 31, 26, 0.95);
       --bg-inset: #120f0d;
 
-      /* Primary Ochre & Amber Accents */
-      --ochre-primary: #d97706;       /* Radiant Amber */
-      --ochre-warm: #b45309;          /* Deep Ochre Earth */
+      /* Acentos Ocre & Ámbar */
+      --ochre-primary: #d97706;       /* Ámbar Radiante */
+      --ochre-warm: #b45309;          /* Ocre Tierra */
       --ochre-light: #f59e0b;         /* Sunlit Amber */
-      --ochre-glow: rgba(217, 119, 6, 0.18);
+      --ochre-glow: rgba(217, 119, 6, 0.2);
       --ochre-subtle: rgba(217, 119, 6, 0.08);
 
-      /* Supporting Tones */
-      --terracotta: #c2410c;          /* Warm Terracotta */
-      --sage-muted: #10b981;          /* Subtle verified green */
+      /* Soporte */
+      --terracotta: #c2410c;
+      --sage-green: #10b981;
 
-      /* Typography & Neutral Readability */
-      --text-main: #fdfaf7;           /* Warm Alabaster */
-      --text-muted: #b5aba1;          /* Muted Oat / Warm Taupe */
-      --text-dim: #7d7268;            /* Weathered Stone */
+      /* Tipografía & Lectura */
+      --text-main: #fcf9f6;           /* Warm Alabaster */
+      --text-muted: #b8aea4;          /* Warm Oat / Taupe */
+      --text-dim: #7f7469;            /* Weathered Bronze */
 
-      /* Borders & Dividers */
-      --border-warm: rgba(217, 119, 6, 0.22);
+      /* Bordes y Líneas */
+      --border-warm: rgba(217, 119, 6, 0.25);
       --border-subtle: rgba(255, 245, 235, 0.08);
       --border-active: rgba(245, 158, 11, 0.55);
 
-      /* Typography Stacks */
+      /* Tipografías */
       --font-display: 'Instrument Serif', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      /* Radii */
+      /* Radios */
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 22px;
@@ -71,15 +71,14 @@
       line-height: 1.6;
       text-align: start;
       overflow-x: hidden;
-      /* Subtle warm grain gradient */
       background-image: 
-        radial-gradient(circle at 10% 12%, rgba(217, 119, 6, 0.1) 0%, transparent 45%),
-        radial-gradient(circle at 88% 30%, rgba(180, 83, 9, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 50% 85%, rgba(194, 65, 12, 0.06) 0%, transparent 50%);
+        radial-gradient(circle at 12% 10%, rgba(217, 119, 6, 0.09) 0%, transparent 40%),
+        radial-gradient(circle at 88% 28%, rgba(180, 83, 9, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(194, 65, 12, 0.05) 0%, transparent 50%);
       background-attachment: fixed;
     }
 
-    /* Modern text wrap rules (per modern web guidance) */
+    /* Reglas tipográficas modernas (Modern Web Guidance) */
     h1, h2, h3, h4, th {
       text-wrap: balance;
     }
@@ -88,21 +87,20 @@
       overflow-wrap: break-word;
     }
 
-    /* Container */
     .container {
       max-width: 1040px;
       margin: 0 auto;
       padding: 0 28px;
     }
 
-    /* Top Navigation / Action Bar */
+    /* Top Bar */
     .top-bar {
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      background: rgba(15, 13, 11, 0.82);
+      background: rgba(13, 11, 10, 0.85);
       border-bottom: 1px solid var(--border-subtle);
       padding: 16px 0;
     }
@@ -118,7 +116,7 @@
       font-size: 0.82rem;
       font-family: var(--font-mono);
       color: var(--text-muted);
-      background: var(--bg-card);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       padding: 6px 14px;
       border-radius: var(--radius-pill);
@@ -126,9 +124,9 @@
     .status-dot {
       width: 8px;
       height: 8px;
-      background-color: var(--sage-muted);
+      background-color: var(--sage-green);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--sage-muted);
+      box-shadow: 0 0 10px var(--sage-green);
     }
     .nav-actions {
       display: flex;
@@ -169,41 +167,40 @@
       transform: translateY(-1px);
     }
 
-    /* Hero / Profile Header */
+    /* Hero / Profile */
     .hero {
-      padding: 70px 0 50px;
+      padding: 65px 0 45px;
       border-bottom: 1px solid var(--border-subtle);
-      position: relative;
     }
     .hero-layout {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 40px;
-      align-items: start;
+      align-items: center;
     }
     .hero-eyebrow {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--ochre-light);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 2rem + 3.5vw, 4.2rem);
+      font-size: clamp(2.6rem, 1.8rem + 3.2vw, 4rem);
       line-height: 1.05;
       font-weight: 400;
       letter-spacing: -0.01em;
       color: var(--text-main);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .hero-title {
       font-size: 1.25rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--ochre-primary);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -219,11 +216,11 @@
       border-radius: var(--radius-pill);
     }
     .hero-bio {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
       line-height: 1.65;
-      max-width: 65ch;
-      margin-bottom: 28px;
+      max-width: 68ch;
+      margin-bottom: 26px;
     }
     .contact-chips {
       display: flex;
@@ -253,38 +250,37 @@
       color: var(--ochre-primary);
     }
 
-    /* Monogram / Avatar Seal */
+    /* Monogram Seal */
     .avatar-seal {
-      width: 140px;
-      height: 140px;
+      width: 145px;
+      height: 145px;
       border-radius: 50%;
       border: 2px solid var(--border-warm);
-      background: radial-gradient(circle at 30% 30%, #2b221a 0%, #15110d 100%);
+      background: radial-gradient(circle at 35% 35%, #2a221b 0%, #14100d 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(217, 119, 6, 0.15);
-      position: relative;
     }
     .avatar-monogram {
       font-family: var(--font-display);
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       color: var(--ochre-light);
       line-height: 1;
     }
     .avatar-year {
       font-family: var(--font-mono);
       font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       color: var(--text-dim);
       margin-top: 4px;
       text-transform: uppercase;
     }
 
-    /* Section Styling */
+    /* Section Structure */
     section {
-      padding: 55px 0;
+      padding: 50px 0;
       border-bottom: 1px solid var(--border-subtle);
     }
     .section-eyebrow {
@@ -307,18 +303,17 @@
     }
     .section-heading {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 2.15rem;
       font-weight: 400;
       color: var(--text-main);
-      margin-bottom: 30px;
+      margin-bottom: 26px;
     }
 
-    /* Highlight Metrics Bento */
+    /* Metrics Bento */
     .metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-bottom: 40px;
     }
     .metric-card {
       background: var(--bg-card);
@@ -327,26 +322,11 @@
       padding: 22px 18px;
       transition: all 0.25s ease;
       position: relative;
-      overflow: hidden;
-    }
-    .metric-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--ochre-warm), var(--ochre-light));
-      opacity: 0;
-      transition: opacity 0.25s ease;
     }
     .metric-card:hover {
       border-color: var(--border-warm);
       background: var(--bg-card-hover);
       transform: translateY(-2px);
-    }
-    .metric-card:hover::before {
-      opacity: 1;
     }
     .metric-value {
       font-family: var(--font-mono);
@@ -365,19 +345,18 @@
       font-weight: 500;
     }
 
-    /* Timeline / Work Experience */
+    /* Experience Timeline */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 22px;
     }
     .timeline-item {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 28px;
+      padding: 26px;
       transition: all 0.25s ease;
-      position: relative;
     }
     .timeline-item:hover {
       border-color: var(--border-warm);
@@ -388,11 +367,11 @@
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 12px;
     }
     .timeline-role {
-      font-size: 1.22rem;
+      font-size: 1.18rem;
       font-weight: 700;
       color: var(--text-main);
     }
@@ -411,16 +390,16 @@
     }
     .timeline-desc {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       line-height: 1.6;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .timeline-achievements {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .timeline-achievements li {
       position: relative;
@@ -443,7 +422,7 @@
     }
     .tag-badge {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-subtle);
       padding: 3px 9px;
@@ -451,20 +430,115 @@
       color: var(--text-muted);
     }
 
+    /* Accordion for Previous Experience */
+    .accordion-toggle {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .accordion-toggle:hover {
+      border-color: var(--border-warm);
+      color: var(--text-main);
+    }
+    .accordion-content {
+      display: none;
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .compact-exp {
+      background: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.88rem;
+    }
+
+    /* Projects Spotlight */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .project-card:hover {
+      border-color: var(--border-warm);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .project-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 14px;
+      align-items: center;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ochre-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
     /* Skills Grid */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
     .skill-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 24px;
+      padding: 22px;
     }
     .skill-card h4 {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 16px;
@@ -484,7 +558,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
       padding-bottom: 6px;
@@ -499,90 +573,43 @@
       color: var(--ochre-light);
     }
 
-    /* Projects Spotlight */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .project-card:hover {
-      border-color: var(--border-warm);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-    }
-    .project-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .project-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .project-card h3 a:hover {
-      color: var(--ochre-light);
-    }
-    .project-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--ochre-light);
-      text-decoration: none;
-      margin-top: 14px;
-      font-weight: 500;
-    }
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Education & Certs */
-    .edu-grid {
+    /* Education & Certifications */
+    .split-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-    .edu-card {
+    .info-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 24px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .edu-year {
+    .info-item {
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .info-meta {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--ochre-warm);
-      margin-bottom: 6px;
-    }
-    .edu-card h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-main);
       margin-bottom: 4px;
     }
-    .edu-card p {
-      font-size: 0.9rem;
+    .info-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+    .info-sub {
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
@@ -595,59 +622,57 @@
     }
     .footer-stamp {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       color: var(--text-muted);
       margin-bottom: 8px;
     }
 
-    /* Responsive */
     @media (max-width: 820px) {
       .hero-layout { grid-template-columns: 1fr; }
       .avatar-seal { order: -1; margin-bottom: 10px; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-      .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .edu-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .split-grid { grid-template-columns: 1fr; }
     }
 
-    /* Print Styles (Per Modern Web Guidance) */
+    /* Print Styles */
     @media print {
       body {
         background: #fff !important;
         color: #000 !important;
       }
-      .top-bar, .btn-primary, .avatar-seal {
+      .top-bar, .btn-primary, .avatar-seal, .accordion-toggle {
         display: none !important;
       }
-      .timeline-item, .metric-card, .skill-card, .project-card, .edu-card {
+      .accordion-content {
+        display: flex !important;
+      }
+      .timeline-item, .metric-card, .skill-card, .project-card, .info-card {
         border: 1px solid #ccc !important;
         background: #fff !important;
         break-inside: avoid;
       }
-      h1, h2, h3, h4 {
-        color: #000 !important;
-      }
-      .timeline-desc, .project-desc, .metric-label, p, li {
-        color: #333 !important;
-      }
+      h1, h2, h3, h4 { color: #000 !important; }
+      p, li, .timeline-desc, .metric-label { color: #333 !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar / Actions -->
+  <!-- Top Action Bar -->
   <header class="top-bar">
     <div class="container nav-inner">
       <div class="nav-status">
         <span class="status-dot"></span>
-        <span>Disponible para Nuevos Proyectos & Roles 2026</span>
+        <span>Disponible para Proyectos & Roles 2026</span>
       </div>
       <div class="nav-actions">
         <a href="https://github.com/King1Angel" target="_blank" class="btn btn-ghost">
           <i class="fa-brands fa-github"></i> GitHub
         </a>
         <button onclick="window.print()" class="btn btn-primary">
-          <i class="fa-solid fa-file-pdf"></i> Imprimir / Guardar PDF
+          <i class="fa-solid fa-file-pdf"></i> Guardar PDF / Imprimir
         </button>
       </div>
     </div>
@@ -659,27 +684,29 @@
     <section class="hero">
       <div class="hero-layout">
         <div>
-          <span class="hero-eyebrow">// RESUME & TECHNICAL PORTFOLIO • 2026 EDITION</span>
-          <h1>Ing. Angel Peña</h1>
+          <span class="hero-eyebrow">// RESUME & TECHNICAL PROFILE • 2026 EDITION</span>
+          <h1>Miguel Angel Peña Pech</h1>
           <div class="hero-title">
-            <span>AI Solutions Engineer & Automation Architect</span>
-            <span class="hero-badge">Full-Stack Platform Engineering</span>
+            <span>Ingeniero en Desarrollo y Gestión de Software</span>
+            <span class="hero-badge">Telecomunicaciones & Redes Cisco</span>
+            <span class="hero-badge">AI Systems & n8n</span>
           </div>
           <p class="hero-bio">
-            Especialista en arquitectura de agentes autónomos, orquestación de sistemas distribuidos y automatización de procesos empresariales. Diseñador de ecosistemas resilientes que combinan modelos de lenguaje de última generación con infraestructura cloud de alta disponibilidad.
+            Ingeniero en Desarrollo y Gestión de Software (UT Chetumal) con sólida experiencia en telecomunicaciones, soporte e infraestructura de redes, y arquitectura de aplicaciones web modernas. Especializado en diseño de agentes autónomos, optimización de experiencia de usuario (Next.js / TypeScript) y documentación técnica bajo estándares de calidad.
           </p>
 
           <div class="contact-chips">
-            <span class="chip"><i class="fa-solid fa-location-dot"></i> Quintana Roo, México</span>
-            <a href="mailto:tu-correo@dominio.com" class="chip"><i class="fa-solid fa-envelope"></i> Contacto Directo</a>
+            <span class="chip"><i class="fa-solid fa-location-dot"></i> Chetumal, Quintana Roo, México</span>
+            <a href="tel:+529831819047" class="chip"><i class="fa-solid fa-phone"></i> (+52) 983-181-9047</a>
+            <a href="mailto:king1angel2@gmail.com" class="chip"><i class="fa-solid fa-envelope"></i> king1angel2@gmail.com</a>
             <a href="https://github.com/King1Angel" target="_blank" class="chip"><i class="fa-brands fa-github"></i> github.com/King1Angel</a>
-            <span class="chip"><i class="fa-solid fa-shield-halved"></i> English & Spanish (Bilingual)</span>
+            <span class="chip"><i class="fa-solid fa-language"></i> Inglés B2 (Bilingüe Profesional)</span>
           </div>
         </div>
 
         <div class="avatar-seal">
           <div class="avatar-monogram">AP</div>
-          <div class="avatar-year">EST. 2026</div>
+          <div class="avatar-year">CÉDULA: 14686740</div>
         </div>
       </div>
     </section>
@@ -688,20 +715,20 @@
     <section>
       <div class="metrics-grid">
         <div class="metric-card">
+          <div class="metric-value">3<span>+</span></div>
+          <div class="metric-label">Años de Trayectoria Técnica</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">3<span>x</span></div>
+          <div class="metric-label">Certificaciones Cisco Oficiales</div>
+        </div>
+        <div class="metric-card">
           <div class="metric-value">25<span>+</span></div>
           <div class="metric-label">Herramientas de IA Diseñadas</div>
         </div>
         <div class="metric-card">
-          <div class="metric-value">10<span>+</span></div>
-          <div class="metric-label">Flujos de Orquestación Activos</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value">99.9<span>%</span></div>
-          <div class="metric-label">Uptime en Azure Cloud VM</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value">100<span>%</span></div>
-          <div class="metric-label">Enfoque en Código Limpio y Seguro</div>
+          <div class="metric-value">B2</div>
+          <div class="metric-label">Nivel de Inglés Comunicativo</div>
         </div>
       </div>
     </section>
@@ -712,54 +739,234 @@
       <h2 class="section-heading">Experiencia Laboral</h2>
 
       <div class="timeline">
-        <!-- Experience 1 -->
+        <!-- APIQROO -->
         <div class="timeline-item">
           <div class="timeline-header">
             <div>
-              <span class="timeline-role">Arquitecto de Agentes de IA & Automatización</span>
-              <span class="timeline-company"> · Proyecto Independiente / Consultoría</span>
+              <span class="timeline-role">Técnico del Área de Informática</span>
+              <span class="timeline-company"> · APIQROO (Administración Portuaria Integral de Q. Roo)</span>
             </div>
-            <span class="timeline-period">2024 — Presente</span>
+            <span class="timeline-period">Agosto 2026 — Actual</span>
           </div>
           <p class="timeline-desc">
-            Diseño, despliegue y mantenimiento de infraestructura de agentes conversacionales inteligentes con capacidades ReAct, auto-reparación en caliente y sincronización multiplataforma.
+            Soporte integral a la infraestructura tecnológica y operativa portuaria en Chetumal. Mantenimiento y configuración de enlaces de telecomunicaciones, servidores y estaciones de trabajo.
           </p>
           <ul class="timeline-achievements">
-            <li>Implementación de un ecosistema de 10 flujos en n8n integrando Google Gemini y memoria buffer de ventana con tolerancia a fallos.</li>
-            <li>Desarrollo de subflujo desacoplado para procesamiento y extracción de datos desde hojas de cálculo binarias (.xlsx/.csv).</li>
-            <li>Configuración de pipeline de DevOps auto-sanador con monitoreo directo a bases de datos SQLite en contenedores Docker sobre Azure.</li>
+            <li>Soporte y mantenimiento de cableado estructurado de red y centros de cableado (IDF/MDF).</li>
+            <li>Configuración y aprovisionamiento de routers, switches, access points (AP) y telefonía IP corporativa.</li>
+            <li>Soporte técnico directo a usuarios y diagnóstico preventivo/correctivo de equipos de cómputo y periféricos.</li>
           </ul>
           <div class="tag-cloud">
-            <span class="tag-badge">n8n Enterprise</span>
-            <span class="tag-badge">LangChain ReAct</span>
-            <span class="tag-badge">Google Gemini API</span>
-            <span class="tag-badge">Docker</span>
-            <span class="tag-badge">Microsoft Azure</span>
-            <span class="tag-badge">Python</span>
-            <span class="tag-badge">REST APIs</span>
+            <span class="tag-badge">Redes & Telecom</span>
+            <span class="tag-badge">Routers / Switches</span>
+            <span class="tag-badge">Telefonía IP</span>
+            <span class="tag-badge">Soporte TI</span>
           </div>
         </div>
 
-        <!-- Experience 2 (Editable Placeholder for Angel) -->
+        <!-- Poder Judicial -->
         <div class="timeline-item">
           <div class="timeline-header">
             <div>
-              <span class="timeline-role">[Puesto / Rol Anterior]</span>
-              <span class="timeline-company"> · [Empresa / Institución]</span>
+              <span class="timeline-role">Empleado General / Soporte en Telecomunicaciones</span>
+              <span class="timeline-company"> · Dirección de Informática del Poder Judicial</span>
             </div>
-            <span class="timeline-period">[Año Inicio — Año Fin]</span>
+            <span class="timeline-period">Septiembre 2024 — Julio 2025</span>
           </div>
           <p class="timeline-desc">
-            [Descripción general de tus responsabilidades principales, objetivos alcanzados y contexto del rol dentro de la empresa].
+            Colaboración en el Departamento de Telecomunicaciones en Chetumal para la gestión y soporte de la red institucional del Poder Judicial del Estado.
           </p>
           <ul class="timeline-achievements">
-            <li>[Logro cuantificable o hito técnico: ej. reducción de tiempos de procesamiento, automatización de tareas críticas o desarrollo de módulos].</li>
-            <li>[Colaboración interdisciplinaria, liderazgo de proyecto o integración de nuevas herramientas tecnológicas].</li>
+            <li>Documentación de proyectos técnicos, bitácoras de servicio y expedientes administrativos de compras TI.</li>
+            <li>Seguimiento de procesos de pago a proveedores de telecomunicaciones y contratistas tecnológicos.</li>
+            <li>Instalación y soporte de cableado estructurado, racks, switches administrables y puntos de acceso WiFi.</li>
           </ul>
           <div class="tag-cloud">
-            <span class="tag-badge">[Tecnología 1]</span>
-            <span class="tag-badge">[Tecnología 2]</span>
-            <span class="tag-badge">[Tecnología 3]</span>
+            <span class="tag-badge">Infraestructura Judicial</span>
+            <span class="tag-badge">Gestión de Proveedores</span>
+            <span class="tag-badge">Access Points</span>
+            <span class="tag-badge">Documentación Técnica</span>
+          </div>
+        </div>
+
+        <!-- Estadías / Consultoría en Desarrollo Web -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Desarrollador Web Frontend (Estadía Profesional)</span>
+              <span class="timeline-company"> · YNBADi (Plataforma SaaS Relevia)</span>
+            </div>
+            <span class="timeline-period">Enero 2026 — Abril 2026</span>
+          </div>
+          <p class="timeline-desc">
+            Diseño e implementación de un Módulo de Ayuda Web Interactivo integrado en la plataforma SaaS Relevia para sustituir manuales estáticos por interfaces de alta velocidad y autoaprendizaje.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Desarrollo con <strong>Next.js 16 (App Router)</strong>, <strong>React 19</strong>, <strong>TypeScript</strong> y <strong>Tailwind CSS 4</strong>.</li>
+            <li>Integración de Skeleton Loading y transiciones fluidas para reducir latencia percibida en navegación.</li>
+            <li>Estructuración de contenidos bajo normativas de calidad ISO 9001:2026 con indexación jerárquica contextual.</li>
+          </ul>
+          <div class="tag-cloud">
+            <span class="tag-badge">Next.js 16</span>
+            <span class="tag-badge">React 19</span>
+            <span class="tag-badge">TypeScript</span>
+            <span class="tag-badge">Tailwind CSS 4</span>
+            <span class="tag-badge">UI/UX</span>
+          </div>
+        </div>
+
+        <!-- Mantenimiento TI IMOVEQROO -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Consultor de Infraestructura TI (Estadía Profesional)</span>
+              <span class="timeline-company"> · Instituto de Movilidad del Estado de Quintana Roo (IMOVEQROO)</span>
+            </div>
+            <span class="timeline-period">Mayo 2024 — Agosto 2024</span>
+          </div>
+          <p class="timeline-desc">
+            Diseño e implementación del "Plan de Mantenimiento para Equipos Tecnológicos", estableciendo el marco técnico-administrativo para la gestión preventiva y correctiva de los equipos del Instituto.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Levantamiento y diagnóstico de inventario de equipos de cómputo y periféricos a nivel estatal.</li>
+            <li>Creación de protocolos de priorización de fallos, bitácoras de control documental y políticas de respaldo de datos.</li>
+          </ul>
+          <div class="tag-cloud">
+            <span class="tag-badge">Gestión TI</span>
+            <span class="tag-badge">Diagnóstico de Hardware</span>
+            <span class="tag-badge">Políticas de Respaldo</span>
+          </div>
+        </div>
+
+        <!-- Experiencia en Atención al Cliente (Agrupada en formato compacto) -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Trayectoria en Hospitalidad & Atención al Cliente Bilingüe</span>
+              <span class="timeline-company"> · Sector Hotelero Boutique y de Lujo</span>
+            </div>
+            <span class="timeline-period">2017 — 2022</span>
+          </div>
+          <p class="timeline-desc">
+            Experiencia consolidada en atención a clientes internacionales, resolución de conflictos y comunicación fluida en inglés:
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+            <div>• <strong>Casa Hormiga Hotel Boutique</strong> (Bacalar) — Recepcionista Bilingüe (Sep 2021 – Ene 2022)</div>
+            <div>• <strong>City Express Plus</strong> (Mérida) — Recepcionista (Dic 2020 – Ago 2021)</div>
+            <div>• <strong>Hotel Boutique Casa Lecanda</strong> (Mérida) — Recepcionista (Jun 2019 – Mar 2020)</div>
+            <div>• <strong>The Westin Lagunamar Ocean Resort</strong> (Cancún) — Recepcionista (Abr 2017 – Feb 2019)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Spotlight -->
+    <section id="projects">
+      <div class="section-eyebrow">Proyectos Técnicos Destacados</div>
+      <h2 class="section-heading">Portafolio & Desarrollo</h2>
+
+      <div class="projects-grid">
+        <!-- Project 1: n8n AI Ecosystem -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>Ecosistema de Agentes de IA en n8n</span>
+              <i class="fa-solid fa-network-wired text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Plataforma de IA autónoma con 25+ herramientas dinámicas (Google Workspace, Telegram, Bóveda Segura) y un subflujo desacoplado para parsing de hojas de cálculo binarias (.xlsx/.csv), con ciclo DevOps auto-sanador en Azure.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">n8n Enterprise</span>
+              <span class="tag-badge">LangChain ReAct</span>
+              <span class="tag-badge">Google Gemini</span>
+              <span class="tag-badge">Docker Azure</span>
+            </div>
+            <div class="project-links">
+              <a href="https://king1angel.github.io/n8n-architecture-showcase/" target="_blank" class="project-link">
+                Ver Showcase Interactivo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a href="https://github.com/King1Angel/n8n-architecture-showcase" target="_blank" class="project-link">
+                GitHub Repo <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Manual Web Relevia -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>Módulo de Ayuda Relevia (SaaS)</span>
+              <i class="fa-solid fa-layer-group text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Manual interactivo de alto rendimiento para usuarios SaaS. Implementado con arquitectura de componentes modernos, skeleton loading para carga instantánea y trazabilidad de requerimientos.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">Next.js 16</span>
+              <span class="tag-badge">React 19</span>
+              <span class="tag-badge">TypeScript</span>
+              <span class="tag-badge">Tailwind 4</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/King1Angel/AngularRelevia" target="_blank" class="project-link">
+                Repositorio Relevia <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: AVE (Agenda Virtual Escolar) -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>AVE - Agenda Virtual Escolar</span>
+              <i class="fa-solid fa-graduation-cap text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Proyecto de titulación TSU enfocado en arquitectura de software formal, modelado de red social escolar con estándar IEEE 830-1998, Project Charter y matriz de trazabilidad de requerimientos.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">IEEE 830-1998</span>
+              <span class="tag-badge">Software Architecture</span>
+              <span class="tag-badge">Project Charter</span>
+            </div>
+            <div class="project-links">
+              <span class="project-link"><i class="fa-solid fa-check"></i> Proyecto de Grado TSU</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Reverse Engineering & Central de Ideas -->
+        <div class="project-card">
+          <div>
+            <h3>
+              <span>Investigación en IA & REA</span>
+              <i class="fa-solid fa-microchip text-ochre"></i>
+            </h3>
+            <p class="project-desc">
+              Pipeline de ingeniería a la inversa (REA), automatización con MCP (Model Context Protocol), y análisis de datos con Python en entornos Jupyter / Google Colab.
+            </p>
+          </div>
+          <div>
+            <div class="tag-cloud">
+              <span class="tag-badge">Python / Colab</span>
+              <span class="tag-badge">MCP Protocol</span>
+              <span class="tag-badge">Ghidra</span>
+              <span class="tag-badge">Reverse Eng</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link">
+                Repo REA <i class="fa-solid fa-lock"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -773,93 +980,37 @@
       <div class="skills-grid">
         <!-- Category 1 -->
         <div class="skill-card">
-          <h4><i class="fa-solid fa-brain"></i> IA & Orquestación</h4>
+          <h4><i class="fa-solid fa-network-wired"></i> Redes & Telecomunicaciones</h4>
           <div class="skill-items">
-            <div class="skill-entry"><span>LangChain / ReAct Pattern</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Google Gemini 1.5 / Flash</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>n8n Enterprise Automation</span><span class="skill-level">Experto</span></div>
-            <div class="skill-entry"><span>Prompt Engineering & Memory</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Human-in-the-Loop Protocols</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Routing & Switching (Cisco)</span><span class="skill-level">Certificado</span></div>
+            <div class="skill-entry"><span>Cableado Estructurado (IDF/MDF)</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Configuración Routers / Switches</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Puntos de Acceso (AP) & Telefonía IP</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Infraestructura de Redes LAN/WLAN</span><span class="skill-level">Avanzado</span></div>
           </div>
         </div>
 
         <!-- Category 2 -->
         <div class="skill-card">
-          <h4><i class="fa-solid fa-server"></i> Backend & Cloud</h4>
+          <h4><i class="fa-solid fa-code"></i> Desarrollo de Software</h4>
           <div class="skill-items">
-            <div class="skill-entry"><span>Python / Node.js</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Docker & Containers</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Microsoft Azure VMs</span><span class="skill-level">Intermedio-Avanzado</span></div>
-            <div class="skill-entry"><span>SQLite / PostgreSQL</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Reverse Proxy (Caddy/Nginx)</span><span class="skill-level">Intermedio</span></div>
+            <div class="skill-entry"><span>JavaScript / TypeScript</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>Next.js / React / Angular</span><span class="skill-level">Intermedio-Avanzado</span></div>
+            <div class="skill-entry"><span>Python / PHP / Node.js</span><span class="skill-level">Intermedio-Avanzado</span></div>
+            <div class="skill-entry"><span>HTML5 & Tailwind CSS</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>SQL / MySQL / MongoDB</span><span class="skill-level">Intermedio</span></div>
           </div>
         </div>
 
         <!-- Category 3 -->
         <div class="skill-card">
-          <h4><i class="fa-solid fa-laptop-code"></i> Frontend & Metodologías</h4>
+          <h4><i class="fa-solid fa-server"></i> DevOps, IA & Sistemas</h4>
           <div class="skill-items">
-            <div class="skill-entry"><span>HTML5 / Modern CSS / JS</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Angular / Web Components</span><span class="skill-level">Intermedio</span></div>
+            <div class="skill-entry"><span>Linux Essentials (NDG)</span><span class="skill-level">Certificado</span></div>
+            <div class="skill-entry"><span>Docker & Azure Cloud VMs</span><span class="skill-level">Avanzado</span></div>
+            <div class="skill-entry"><span>n8n Enterprise Automation</span><span class="skill-level">Experto</span></div>
+            <div class="skill-entry"><span>LangChain & Modelos Gemini</span><span class="skill-level">Avanzado</span></div>
             <div class="skill-entry"><span>Git / GitHub CI & CD</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>OAuth2 / API Security</span><span class="skill-level">Avanzado</span></div>
-            <div class="skill-entry"><span>Reverse Engineering (REA)</span><span class="skill-level">Intermedio</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects -->
-    <section id="projects">
-      <div class="section-eyebrow">Portafolio Seleccionado</div>
-      <h2 class="section-heading">Proyectos Destacados</h2>
-
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div>
-            <h3>
-              <span>Ecosistema de Agentes n8n</span>
-              <i class="fa-solid fa-network-wired text-ochre"></i>
-            </h3>
-            <p class="project-desc">
-              Plataforma de agentes autónomos con 25+ herramientas, auto-sanador de workflows en caliente, manejo de Google Workspace completo y procesamiento de hojas de cálculo binarias en Azure.
-            </p>
-          </div>
-          <div>
-            <div class="tag-cloud">
-              <span class="tag-badge">n8n</span>
-              <span class="tag-badge">Gemini</span>
-              <span class="tag-badge">Docker</span>
-              <span class="tag-badge">Self-Healing</span>
-            </div>
-            <a href="https://github.com/King1Angel/n8n-architecture-showcase" target="_blank" class="project-link">
-              Ver Showcase Técnico <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div>
-            <h3>
-              <span>Reverse Engineer Anything (REA)</span>
-              <i class="fa-solid fa-cube text-ochre"></i>
-            </h3>
-            <p class="project-desc">
-              Pipeline de ingeniería inversa y análisis de software compilado, automatización de decompilación y extracción de lógica binaria para análisis de seguridad y compatibilidad.
-            </p>
-          </div>
-          <div>
-            <div class="tag-cloud">
-              <span class="tag-badge">C++</span>
-              <span class="tag-badge">Reverse Engineering</span>
-              <span class="tag-badge">Ghidra</span>
-              <span class="tag-badge">Assembly</span>
-            </div>
-            <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link">
-              Repositorio Privado <i class="fa-solid fa-lock"></i>
-            </a>
           </div>
         </div>
       </div>
@@ -867,21 +1018,47 @@
 
     <!-- Education & Certifications -->
     <section id="education">
-      <div class="section-eyebrow">Formación Académica</div>
-      <h2 class="section-heading">Educación & Certificaciones</h2>
+      <div class="section-eyebrow">Formación Académica & Credenciales</div>
+      <h2 class="section-heading">Educación y Certificaciones</h2>
 
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-year">Formación Profesional</div>
-          <h4>Ingeniería [Título de tu Carrera]</h4>
-          <p>[Universidad o Instituto Tecnológico, Ej. Instituto Tecnológico de Cancún / Universidad]</p>
-          <p style="margin-top: 6px; font-size: 0.82rem; color: var(--text-dim);">Quintana Roo, México</p>
+      <div class="split-grid">
+        <!-- Education -->
+        <div class="info-card">
+          <h3 style="font-size: 1.15rem; color: var(--ochre-light); margin-bottom: 4px;">
+            <i class="fa-solid fa-graduation-cap"></i> Grados Académicos
+          </h3>
+          <div class="info-item">
+            <div class="info-meta">Finalizada: Abril 2026 · En trámite de título</div>
+            <div class="info-title">Ingeniería en Desarrollo y Gestión de Software</div>
+            <div class="info-sub">Universidad Tecnológica de Chetumal (UT Chetumal)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-meta">Titulado el: 10/10/2024 · Cédula: 14686740</div>
+            <div class="info-title">T.S.U. en Tecnologías de la Información</div>
+            <div class="info-sub">Área Desarrollo de Software Multiplataforma · UT Chetumal</div>
+          </div>
         </div>
 
-        <div class="edu-card">
-          <div class="edu-year">Certificaciones & Especializaciones</div>
-          <h4>Especialista en Automatización & Cloud</h4>
-          <p>Orquestación de workflows empresariales, integración de LLMs en entornos productivos y arquitecturas de microservicios.</p>
+        <!-- Certifications -->
+        <div class="info-card">
+          <h3 style="font-size: 1.15rem; color: var(--ochre-light); margin-bottom: 4px;">
+            <i class="fa-solid fa-certificate"></i> Certificaciones Oficiales
+          </h3>
+          <div class="info-item">
+            <div class="info-meta">Cisco Networking Academy · Sep 2023</div>
+            <div class="info-title">Partner: NDG Linux Essentials</div>
+            <div class="info-sub">Administración del sistema, línea de comandos bash y permisos.</div>
+          </div>
+          <div class="info-item">
+            <div class="info-meta">Cisco Networking Academy · Jun 2023</div>
+            <div class="info-title">CCNAv7: Switching, Routing, and Wireless Essentials</div>
+            <div class="info-sub">Configuración de switches, VLANs, enrutamiento estático y redes inalámbricas.</div>
+          </div>
+          <div class="info-item">
+            <div class="info-meta">Cisco Networking Academy · Ene 2023</div>
+            <div class="info-title">CCNAv7: Introduction to Networks</div>
+            <div class="info-sub">Arquitectura de red, modelos OSI/TCP-IP, direccionamiento IPv4/IPv6 y subredes.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -891,8 +1068,11 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-stamp">Ing. Angel Peña</div>
-      <p>© 2026 Curriculum Vitae Web · Diseñado con precisión editorial, ocre y ámbar.</p>
+      <div class="footer-stamp">Ing. Miguel Angel Peña Pech</div>
+      <p>© 2026 Curriculum Vitae Web · Desarrollado con arquitectura editorial cálida (Ocre & Ámbar).</p>
+      <p style="margin-top: 6px; font-size: 0.78rem; color: var(--text-dim);">
+        Chetumal, Quintana Roo, México · Cédula Profesional: 14686740 · Inglés B2
+      </p>
     </div>
   </footer>
 
