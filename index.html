@@ -505,24 +505,48 @@
       line-height: 1.55;
       margin-bottom: 18px;
     }
-    .project-links {
+    .project-links, .item-links {
       display: flex;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 14px;
       align-items: center;
     }
-    .project-link {
+    .project-link, .link-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       font-family: var(--font-mono);
       font-size: 0.8rem;
+      font-weight: 600;
       color: var(--ochre-light);
+      background: var(--bg-inset);
+      border: 1px solid var(--border-warm);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
       text-decoration: none;
-      font-weight: 500;
+      transition: all 0.2s ease;
     }
-    .project-link:hover {
-      text-decoration: underline;
+    .project-link:hover, .link-badge:hover {
+      background: var(--ochre-subtle);
+      border-color: var(--ochre-light);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .project-link i, .link-badge i {
+      color: var(--ochre-primary);
+      font-size: 0.82rem;
+    }
+    .link-badge-secondary {
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+    }
+    .link-badge-secondary:hover {
+      border-color: var(--border-warm);
+      color: var(--text-main);
+    }
+    .print-url {
+      display: none;
     }
 
     /* Skills Grid */
@@ -639,22 +663,153 @@
     /* Print Styles */
     @media print {
       body {
-        background: #fff !important;
-        color: #000 !important;
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 9.5pt;
+        background-image: none !important;
       }
-      .top-bar, .btn-primary, .avatar-seal, .accordion-toggle {
+      .top-bar, .avatar-seal, .accordion-toggle {
         display: none !important;
       }
       .accordion-content {
         display: flex !important;
       }
-      .timeline-item, .metric-card, .skill-card, .project-card, .info-card {
-        border: 1px solid #ccc !important;
-        background: #fff !important;
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .hero {
+        padding: 16px 0 12px !important;
+        border-bottom: 2px solid #e5e7eb !important;
+      }
+      .hero h1 {
+        font-size: 2.1rem !important;
+        color: #111827 !important;
+      }
+      .hero-title {
+        color: #b45309 !important;
+        font-size: 1.05rem !important;
+        margin-bottom: 10px !important;
+      }
+      .hero-bio {
+        color: #374151 !important;
+        font-size: 9.5pt !important;
+        max-width: 100% !important;
+        margin-bottom: 14px !important;
+      }
+      .contact-chips {
+        gap: 6px !important;
+      }
+      .chip {
+        background: #f9fafb !important;
+        border: 1px solid #d1d5db !important;
+        color: #111827 !important;
+        font-size: 8pt !important;
+        padding: 4px 10px !important;
+      }
+      .chip i {
+        color: #b45309 !important;
+      }
+      section {
+        padding: 20px 0 !important;
+        border-bottom: 1px solid #e5e7eb !important;
+      }
+      .section-heading {
+        font-size: 1.55rem !important;
+        color: #111827 !important;
+        margin-bottom: 14px !important;
+      }
+      .section-eyebrow {
+        color: #b45309 !important;
+        font-size: 0.72rem !important;
+      }
+      .section-eyebrow::after {
+        background: #e5e7eb !important;
+      }
+      .metrics-grid {
+        gap: 10px !important;
+      }
+      .metric-card {
+        border: 1px solid #d1d5db !important;
+        background: #fafafa !important;
+        padding: 10px 14px !important;
+        page-break-inside: avoid;
         break-inside: avoid;
       }
-      h1, h2, h3, h4 { color: #000 !important; }
-      p, li, .timeline-desc, .metric-label { color: #333 !important; }
+      .metric-value {
+        font-size: 1.5rem !important;
+        color: #111827 !important;
+      }
+      .metric-value span {
+        color: #b45309 !important;
+      }
+      .timeline-item, .project-card, .skill-card, .info-card {
+        border: 1px solid #d1d5db !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding: 14px 18px !important;
+        margin-bottom: 12px !important;
+      }
+      .timeline-role, .project-card h3, .skill-card h4, .info-title {
+        color: #111827 !important;
+        font-size: 1.05rem !important;
+      }
+      .timeline-company, .info-meta {
+        color: #b45309 !important;
+      }
+      .timeline-period {
+        background: #f3f4f6 !important;
+        border: 1px solid #d1d5db !important;
+        color: #4b5563 !important;
+      }
+      p, li, .timeline-desc, .project-desc, .info-sub, .skill-entry span {
+        color: #374151 !important;
+      }
+      .tag-badge {
+        background: #f3f4f6 !important;
+        border: 1px solid #e5e7eb !important;
+        color: #4b5563 !important;
+      }
+      /* Links in Print format - Clear, high-contrast, fully visible URLs */
+      .item-links, .project-links {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+        margin-top: 10px !important;
+        padding-top: 8px !important;
+        border-top: 1px dashed #d1d5db !important;
+      }
+      .link-badge, .project-link {
+        display: inline-flex !important;
+        align-items: baseline !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        color: #92400e !important;
+        font-weight: 700 !important;
+        font-size: 8.5pt !important;
+        text-decoration: underline !important;
+        gap: 6px !important;
+      }
+      .link-badge i, .project-link i {
+        color: #92400e !important;
+        font-size: 8pt !important;
+      }
+      .print-url {
+        display: inline !important;
+        font-family: var(--font-mono) !important;
+        font-size: 7.5pt !important;
+        color: #4b5563 !important;
+        font-weight: normal !important;
+        text-decoration: none !important;
+        word-break: break-all !important;
+      }
+      @page {
+        margin: 1.2cm;
+        size: letter;
+      }
     }
   </style>
 </head>
@@ -813,6 +968,23 @@
             <span class="tag-badge">Tailwind CSS 4</span>
             <span class="tag-badge">UI/UX</span>
           </div>
+          <div class="item-links">
+            <a href="http://angular-relevia.vercel.app/" target="_blank" class="link-badge">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Ver Proyecto</span>
+              <span class="print-url">— http://angular-relevia.vercel.app/</span>
+            </a>
+            <a href="https://drive.google.com/file/d/1r1gEwZbZiEesvE9vqxyV2r8jVbgzptdM/view?usp=drive_link" target="_blank" class="link-badge link-badge-secondary">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>Ver Documentación</span>
+              <span class="print-url">— https://drive.google.com/file/d/1r1gEwZbZiEesvE9vqxyV2r8jVbgzptdM/view?usp=drive_link</span>
+            </a>
+            <a href="https://github.com/King1Angel/AngularRelevia" target="_blank" class="link-badge link-badge-secondary">
+              <i class="fa-brands fa-github"></i>
+              <span>Ver Repositorio</span>
+              <span class="print-url">— https://github.com/King1Angel/AngularRelevia</span>
+            </a>
+          </div>
         </div>
 
         <!-- Mantenimiento TI IMOVEQROO -->
@@ -835,6 +1007,13 @@
             <span class="tag-badge">Gestión TI</span>
             <span class="tag-badge">Diagnóstico de Hardware</span>
             <span class="tag-badge">Políticas de Respaldo</span>
+          </div>
+          <div class="item-links">
+            <a href="https://drive.google.com/file/d/16kpBpjK8tKYSfSjidmPXp_LAfyzweh08/view?usp=drive_link" target="_blank" class="link-badge">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>Ver Documentación</span>
+              <span class="print-url">— https://drive.google.com/file/d/16kpBpjK8tKYSfSjidmPXp_LAfyzweh08/view?usp=drive_link</span>
+            </a>
           </div>
         </div>
 
@@ -886,10 +1065,14 @@
             </div>
             <div class="project-links">
               <a href="https://king1angel.github.io/n8n-architecture-showcase/" target="_blank" class="project-link">
-                Ver Showcase Interactivo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Ver Showcase</span>
+                <span class="print-url">— https://king1angel.github.io/n8n-architecture-showcase/</span>
               </a>
-              <a href="https://github.com/King1Angel/n8n-architecture-showcase" target="_blank" class="project-link">
-                GitHub Repo <i class="fa-brands fa-github"></i>
+              <a href="https://github.com/King1Angel/n8n-architecture-showcase" target="_blank" class="project-link link-badge-secondary">
+                <i class="fa-brands fa-github"></i>
+                <span>Repositorio</span>
+                <span class="print-url">— https://github.com/King1Angel/n8n-architecture-showcase</span>
               </a>
             </div>
           </div>
@@ -914,8 +1097,20 @@
               <span class="tag-badge">Tailwind 4</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/King1Angel/AngularRelevia" target="_blank" class="project-link">
-                Repositorio Relevia <i class="fa-brands fa-github"></i>
+              <a href="http://angular-relevia.vercel.app/" target="_blank" class="project-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Ver Proyecto</span>
+                <span class="print-url">— http://angular-relevia.vercel.app/</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1r1gEwZbZiEesvE9vqxyV2r8jVbgzptdM/view?usp=drive_link" target="_blank" class="project-link link-badge-secondary">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Ver Documentación</span>
+                <span class="print-url">— https://drive.google.com/file/d/1r1gEwZbZiEesvE9vqxyV2r8jVbgzptdM/view?usp=drive_link</span>
+              </a>
+              <a href="https://github.com/King1Angel/AngularRelevia" target="_blank" class="project-link link-badge-secondary">
+                <i class="fa-brands fa-github"></i>
+                <span>Repositorio</span>
+                <span class="print-url">— https://github.com/King1Angel/AngularRelevia</span>
               </a>
             </div>
           </div>
@@ -939,7 +1134,11 @@
               <span class="tag-badge">Project Charter</span>
             </div>
             <div class="project-links">
-              <span class="project-link"><i class="fa-solid fa-check"></i> Proyecto de Grado TSU</span>
+              <a href="https://drive.google.com/drive/folders/1ZKvVIWiCvxt8NIKScu_1cquvYH3EWc11?usp=drive_link" target="_blank" class="project-link">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Ver Documentación</span>
+                <span class="print-url">— https://drive.google.com/drive/folders/1ZKvVIWiCvxt8NIKScu_1cquvYH3EWc11?usp=drive_link</span>
+              </a>
             </div>
           </div>
         </div>
@@ -952,7 +1151,7 @@
               <i class="fa-solid fa-microchip text-ochre"></i>
             </h3>
             <p class="project-desc">
-              Pipeline de ingeniería a la inversa (REA), automatización con MCP (Model Context Protocol), y análisis de datos con Python en entornos Jupyter / Google Colab.
+              Pipeline de ingeniería a la inversa (REA), orquestación de agentes con MCP (Model Context Protocol), y análisis de datos con Python en entornos Jupyter / Google Colab (Central de Ideas).
             </p>
           </div>
           <div>
@@ -963,8 +1162,15 @@
               <span class="tag-badge">Reverse Eng</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link">
-                Repo REA <i class="fa-solid fa-lock"></i>
+              <a href="https://drive.google.com/drive/folders/1ElJipHg3R0UzSswQyOKtylR0L4M0TQN0?usp=drive_link" target="_blank" class="project-link">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Ver Documentación</span>
+                <span class="print-url">— https://drive.google.com/drive/folders/1ElJipHg3R0UzSswQyOKtylR0L4M0TQN0?usp=drive_link</span>
+              </a>
+              <a href="https://github.com/King1Angel/rea" target="_blank" class="project-link link-badge-secondary">
+                <i class="fa-brands fa-github"></i>
+                <span>Repo REA</span>
+                <span class="print-url">— https://github.com/King1Angel/rea</span>
               </a>
             </div>
           </div>
@@ -1036,6 +1242,13 @@
             <div class="info-meta">Titulado el: 10/10/2024 · Cédula: 14686740</div>
             <div class="info-title">T.S.U. en Tecnologías de la Información</div>
             <div class="info-sub">Área Desarrollo de Software Multiplataforma · UT Chetumal</div>
+            <div class="item-links" style="margin-top: 8px;">
+              <a href="https://cedula.buholegal.com/14686740/" target="_blank" class="link-badge link-badge-secondary" style="padding: 4px 10px; font-size: 0.74rem;">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Consultar Cédula 14686740</span>
+                <span class="print-url">— https://cedula.buholegal.com/14686740/</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1048,16 +1261,37 @@
             <div class="info-meta">Cisco Networking Academy · Sep 2023</div>
             <div class="info-title">Partner: NDG Linux Essentials</div>
             <div class="info-sub">Administración del sistema, línea de comandos bash y permisos.</div>
+            <div class="item-links" style="margin-top: 6px;">
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+                <i class="fa-solid fa-certificate"></i>
+                <span>Verificar Cisco NetAcad</span>
+                <span class="print-url">— https://www.netacad.com/</span>
+              </a>
+            </div>
           </div>
           <div class="info-item">
             <div class="info-meta">Cisco Networking Academy · Jun 2023</div>
             <div class="info-title">CCNAv7: Switching, Routing, and Wireless Essentials</div>
             <div class="info-sub">Configuración de switches, VLANs, enrutamiento estático y redes inalámbricas.</div>
+            <div class="item-links" style="margin-top: 6px;">
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+                <i class="fa-solid fa-certificate"></i>
+                <span>Verificar Cisco NetAcad</span>
+                <span class="print-url">— https://www.netacad.com/</span>
+              </a>
+            </div>
           </div>
           <div class="info-item">
             <div class="info-meta">Cisco Networking Academy · Ene 2023</div>
             <div class="info-title">CCNAv7: Introduction to Networks</div>
             <div class="info-sub">Arquitectura de red, modelos OSI/TCP-IP, direccionamiento IPv4/IPv6 y subredes.</div>
+            <div class="item-links" style="margin-top: 6px;">
+              <a href="https://www.netacad.com/" target="_blank" class="link-badge link-badge-secondary" style="padding: 3px 8px; font-size: 0.72rem;">
+                <i class="fa-solid fa-certificate"></i>
+                <span>Verificar Cisco NetAcad</span>
+                <span class="print-url">— https://www.netacad.com/</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
