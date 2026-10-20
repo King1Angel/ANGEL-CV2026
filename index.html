@@ -365,37 +365,33 @@
       color: var(--ochre-primary);
     }
 
-    /* Monogram Seal */
+    /* Profile Photo Seal */
     .avatar-seal {
-      width: 145px;
-      height: 145px;
+      width: 155px;
+      height: 155px;
       border-radius: 50%;
-      border: 2px solid var(--border-warm);
-      background: radial-gradient(circle at 35% 35%, #fffdfa 0%, #f4eee3 100%);
+      border: 3px solid var(--ochre-primary);
+      background: var(--bg-card);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: var(--shadow-md), inset 0 0 15px rgba(217, 119, 6, 0.08);
+      box-shadow: var(--shadow-md), 0 0 0 4px rgba(217, 119, 6, 0.15);
       position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    [data-theme="dark"] .avatar-seal {
-      background: radial-gradient(circle at 35% 35%, #2a221b 0%, #14100d 100%);
+    .avatar-seal:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg), 0 0 0 6px rgba(217, 119, 6, 0.25);
     }
-    .avatar-monogram {
-      font-family: var(--font-display);
-      font-size: 3.4rem;
-      color: var(--ochre-primary);
-      line-height: 1;
-    }
-    .avatar-year {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.16em;
-      color: var(--text-dim);
-      margin-top: 4px;
-      text-transform: uppercase;
-      font-weight: 600;
+    .avatar-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 50%;
     }
 
     /* Section Structure */
@@ -1157,8 +1153,7 @@
         </div>
 
         <div class="avatar-seal">
-          <div class="avatar-monogram">AP</div>
-          <div class="avatar-year" data-i18n="hero.license">CÉDULA: 14686740</div>
+          <img src="assets/profile.jpg" alt="Ing. Miguel Angel Peña Pech" class="avatar-photo" />
         </div>
       </div>
     </section>
