@@ -997,6 +997,150 @@
       color: var(--ochre-light);
     }
 
+    /* Modal Lightbox para Certificados en HD */
+    .cert-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 13, 11, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .cert-lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .cert-lightbox-dialog {
+      position: relative;
+      max-width: 980px;
+      width: 100%;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      transform: scale(0.96);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cert-lightbox.active .cert-lightbox-dialog {
+      transform: scale(1);
+    }
+
+    .cert-lightbox-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border-warm);
+      background: var(--bg-inset-subtle);
+      gap: 12px;
+    }
+
+    .cert-lightbox-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ochre-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cert-lightbox-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .cert-lightbox-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cert-lightbox-btn:hover {
+      background: var(--ochre-glow);
+      border-color: var(--ochre-primary);
+      color: var(--ochre-primary);
+    }
+
+    .cert-lightbox-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cert-lightbox-close:hover {
+      background: rgba(0, 0, 0, 0.08);
+      color: var(--ochre-primary);
+    }
+
+    [data-theme="dark"] .cert-lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .cert-lightbox-body {
+      padding: 16px;
+      width: 100%;
+      max-height: calc(92vh - 60px);
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-canvas);
+    }
+
+    .cert-lightbox-img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14);
+      display: block;
+    }
+
+    @media print {
+      .cert-lightbox {
+        display: none !important;
+      }
+    }
+
     .print-url {
       display: none;
     }
@@ -1329,8 +1473,8 @@
             <span class="hero-badge" data-i18n="hero.badge2">AI Systems & n8n Enterprise</span>
           </div>
           <p class="hero-bio" data-i18n="hero.bio">
-            Ingeniero en Desarrollo y Gestión de Software (UT Chetumal) con sólida experiencia en telecomunicaciones,
-            soporte e infraestructura de redes, y arquitectura de aplicaciones web modernas. Especializado en diseño de
+            Ingeniero en Desarrollo y Gestión de Software (UT Chetumal) con experiencia en telecomunicaciones,
+            soporte e infraestructura de redes, y arquitectura de aplicaciones web modernas. Autodidacta en diseño de
             agentes autónomos, optimización de experiencia de usuario (Next.js / TypeScript) y documentación técnica
             bajo estándares de calidad.
           </p>
@@ -1397,19 +1541,19 @@
 
           <div class="exp-highlight-quote" data-i18n="exp.apiqroo.highlight">
             Soporte integral a la infraestructura tecnológica y operativa portuaria en Chetumal. Mantenimiento y
-            configuración de enlaces de telecomunicaciones, servidores y estaciones de trabajo.
+            configuración de enlaces de telecomunicaciones, servidores, estaciones de trabajo y soporte técnico L1.
           </div>
 
           <ul class="exp-achievements-list">
             <li>
               <span class="achievement-lead" data-i18n="exp.apiqroo.lead1">Cableado & Fibra:</span>
               <span data-i18n="exp.apiqroo.b1">Mantenimiento preventivo/correctivo de cableado estructurado de red y
-                administración de centros de cableado (IDF/MDF).</span>
+                administración de centros de cableado.</span>
             </li>
             <li>
               <span class="achievement-lead" data-i18n="exp.apiqroo.lead2">Networking & Telefonía:</span>
-              <span data-i18n="exp.apiqroo.b2">Configuración y aprovisionamiento de routers, switches administrables
-                Cisco, access points corporativos y telefonía IP (VoIP).</span>
+              <span data-i18n="exp.apiqroo.b2">Configuración y aprovisionamiento de routers, switches administrables,
+                access points corporativos y telefonía IP (VoIP).</span>
             </li>
             <li>
               <span class="achievement-lead" data-i18n="exp.apiqroo.lead3">Soporte Técnico Especializado:</span>
@@ -1438,7 +1582,7 @@
                 <span class="timeline-role" data-i18n="exp.pj.role">Empleado General / Soporte en
                   Telecomunicaciones</span>
                 <span class="timeline-company" data-i18n="exp.pj.company">Dirección de Informática del Poder Judicial
-                  del Estado</span>
+                  del Estado de Chetumal</span>
               </div>
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> <span
@@ -1681,7 +1825,7 @@
               <span class="tag-badge">n8n Enterprise</span>
               <span class="tag-badge">LangChain ReAct</span>
               <span class="tag-badge">Google Gemini</span>
-              <span class="tag-badge">Docker Azure</span>
+              <span class="tag-badge">Docker-Azure</span>
             </div>
             <div class="project-links">
               <a href="https://king1angel.github.io/n8n-architecture-showcase/" target="_blank" class="project-link">
@@ -1708,7 +1852,9 @@
             </h3>
             <p class="project-desc" data-i18n="proj.p2.desc">
               Manual interactivo de alto rendimiento para usuarios SaaS. Implementado con arquitectura de componentes
-              modernos, skeleton loading para carga instantánea y trazabilidad de requerimientos.
+              modernos, skeleton loading para carga instantánea, trazabilidad de requerimientos e indexación para
+              búsqueda
+              personalizada.
             </p>
           </div>
           <div>
@@ -1836,15 +1982,15 @@
           <h4><i class="fa-solid fa-code"></i> <span data-i18n="skills.c2.title">Desarrollo de Software</span></h4>
           <div class="skill-items">
             <div class="skill-entry"><span data-i18n="skills.c2.i1">JavaScript / TypeScript</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c2.i2">Next.js / React / Angular</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c2.i3">Python / PHP / Node.js</span><span
                 class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c2.i4">HTML5 & Tailwind CSS</span><span class="skill-level"
                 data-i18n="skills.lvl.mid">Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c2.i5">SQL / MySQL / MongoDB</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
           </div>
         </div>
 
@@ -1853,13 +1999,13 @@
           <h4><i class="fa-solid fa-server"></i> <span data-i18n="skills.c3.title">DevOps, IA & Sistemas</span></h4>
           <div class="skill-items">
             <div class="skill-entry"><span data-i18n="skills.c3.i1">Linux Essentials (NDG)</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Certificado</span></div>
             <div class="skill-entry"><span data-i18n="skills.c3.i2">Docker & Azure Cloud VMs</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c3.i3">n8n Enterprise Automation</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c3.i4">LangChain & Modelos Gemini</span><span
-                class="skill-level" data-i18n="skills.lvl.mid">Intermedio</span></div>
+                class="skill-level" data-i18n="skills.lvl.mid">Básico-Intermedio</span></div>
             <div class="skill-entry"><span data-i18n="skills.c3.i5">Git / GitHub CI & CD</span><span class="skill-level"
                 data-i18n="skills.lvl.mid">Intermedio</span></div>
           </div>
@@ -1879,7 +2025,7 @@
             <i class="fa-solid fa-graduation-cap"></i> <span data-i18n="edu.degreesTitle">Grados Académicos</span>
           </h3>
           <div class="info-item">
-            <div class="info-meta" data-i18n="edu.deg1.meta">Finalizada: Abril 2026 · En trámite de título</div>
+            <div class="info-meta" data-i18n="edu.deg1.meta">Finalizada: Abril 2026 · Titulado / Cédula en trámite</div>
             <div class="info-title" data-i18n="edu.deg1.title">Ingeniería en Desarrollo y Gestión de Software</div>
             <div class="info-sub" data-i18n="edu.deg1.sub">Universidad Tecnológica de Chetumal (UT Chetumal)</div>
           </div>
@@ -1906,13 +2052,13 @@
             <div class="info-title">Partner: NDG Linux Essentials</div>
             <div class="info-sub" data-i18n="certs.c1.desc">Administración del sistema, línea de comandos bash y
               permisos.</div>
-            <a href="https://drive.google.com/file/d/14_XmPTSZSZm1usLK8OIxroxThWseOH-W/view?usp=drivesdk"
-              target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+            <a href="assets/certs/cert_ndg_linux.png" target="_blank" class="cert-preview-link"
+              title="Ver Certificado en HD" data-cert-title="Partner: NDG Linux Essentials">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ndg_linux.png" alt="Certificado Partner: NDG Linux Essentials"
                   class="cert-preview-img" loading="lazy">
-                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span
-                    data-i18n="certs.previewBadge">Ver en Drive</span></span>
+                <span class="cert-preview-badge"><i class="fa-solid fa-expand"></i> <span
+                    data-i18n="certs.previewBadge">Ver Imagen HD</span></span>
               </div>
             </a>
             <div class="item-links">
@@ -1923,10 +2069,6 @@
                 <span class="print-url">—
                   https://drive.google.com/file/d/14_XmPTSZSZm1usLK8OIxroxThWseOH-W/view?usp=drivesdk</span>
               </a>
-              <a href="assets/certs/cert_ndg_linux.png" target="_blank" class="link-badge link-badge-secondary">
-                <i class="fa-solid fa-image"></i>
-                <span data-i18n="certs.btnImg">Ver Imagen HD</span>
-              </a>
             </div>
           </div>
 
@@ -1936,14 +2078,14 @@
             <div class="info-title">CCNAv7: Switching, Routing, and Wireless Essentials</div>
             <div class="info-sub" data-i18n="certs.c2.desc">Configuración de switches, VLANs, enrutamiento estático y
               redes inalámbricas.</div>
-            <a href="https://drive.google.com/file/d/1ic60nRq7iuiVCsHpxv_AUeP0gkb5bX6W/view?usp=drivesdk"
-              target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+            <a href="assets/certs/cert_ccna_switching.png" target="_blank" class="cert-preview-link"
+              title="Ver Certificado en HD" data-cert-title="CCNAv7: Switching, Routing, and Wireless Essentials">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ccna_switching.png"
                   alt="Certificado CCNAv7: Switching, Routing, and Wireless Essentials" class="cert-preview-img"
                   loading="lazy">
-                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span
-                    data-i18n="certs.previewBadge">Ver en Drive</span></span>
+                <span class="cert-preview-badge"><i class="fa-solid fa-expand"></i> <span
+                    data-i18n="certs.previewBadge">Ver Imagen HD</span></span>
               </div>
             </a>
             <div class="item-links">
@@ -1954,10 +2096,6 @@
                 <span class="print-url">—
                   https://drive.google.com/file/d/1ic60nRq7iuiVCsHpxv_AUeP0gkb5bX6W/view?usp=drivesdk</span>
               </a>
-              <a href="assets/certs/cert_ccna_switching.png" target="_blank" class="link-badge link-badge-secondary">
-                <i class="fa-solid fa-image"></i>
-                <span data-i18n="certs.btnImg">Ver Imagen HD</span>
-              </a>
             </div>
           </div>
 
@@ -1967,13 +2105,13 @@
             <div class="info-title">CCNAv7: Introduction to Networks</div>
             <div class="info-sub" data-i18n="certs.c3.desc">Arquitectura de red, modelos OSI/TCP-IP, direccionamiento
               IPv4/IPv6 y subredes.</div>
-            <a href="https://drive.google.com/file/d/1iXAnrdDxPRKn7lAm-fW4iIGXwK3j8gF7/view?usp=drivesdk"
-              target="_blank" class="cert-preview-link" title="Ver Certificado en Google Drive">
+            <a href="assets/certs/cert_ccna_intro.png" target="_blank" class="cert-preview-link"
+              title="Ver Certificado en HD" data-cert-title="CCNAv7: Introduction to Networks">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ccna_intro.png" alt="Certificado CCNAv7: Introduction to Networks"
                   class="cert-preview-img" loading="lazy">
-                <span class="cert-preview-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span
-                    data-i18n="certs.previewBadge">Ver en Drive</span></span>
+                <span class="cert-preview-badge"><i class="fa-solid fa-expand"></i> <span
+                    data-i18n="certs.previewBadge">Ver Imagen HD</span></span>
               </div>
             </a>
             <div class="item-links">
@@ -1983,10 +2121,6 @@
                 <span data-i18n="certs.btnDriveCert">Ver Certificado (Drive)</span>
                 <span class="print-url">—
                   https://drive.google.com/file/d/1iXAnrdDxPRKn7lAm-fW4iIGXwK3j8gF7/view?usp=drivesdk</span>
-              </a>
-              <a href="assets/certs/cert_ccna_intro.png" target="_blank" class="link-badge link-badge-secondary">
-                <i class="fa-solid fa-image"></i>
-                <span data-i18n="certs.btnImg">Ver Imagen HD</span>
               </a>
             </div>
           </div>
@@ -2007,6 +2141,30 @@
       </p>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN HD DE CERTIFICADOS -->
+  <div id="certLightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cert-lightbox-dialog">
+      <div class="cert-lightbox-header">
+        <h4 id="certLightboxTitle" class="cert-lightbox-title">
+          <i class="fa-solid fa-certificate"></i>
+          <span>Certificado</span>
+        </h4>
+        <div class="cert-lightbox-actions">
+          <a id="certLightboxExternal" href="#" target="_blank" class="cert-lightbox-btn" title="Abrir imagen en pestaña nueva">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span data-i18n="certs.lightboxExternal">Abrir pestaña</span>
+          </a>
+          <button id="certLightboxClose" class="cert-lightbox-close" type="button" aria-label="Cerrar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="cert-lightbox-body">
+        <img id="certLightboxImg" class="cert-lightbox-img" src="" alt="Certificado en HD">
+      </div>
+    </div>
+  </div>
 
   <!-- SCRIPT DE INTERNACIONALIZACIÓN (ES / EN) Y TEMA -->
   <script>
@@ -2153,9 +2311,10 @@
         "certs.c2.desc": "Configuración de switches, VLANs, enrutamiento estático y redes inalámbricas.",
         "certs.c3.meta": "Cisco Networking Academy · Ene 2023",
         "certs.c3.desc": "Arquitectura de red, modelos OSI/TCP-IP, direccionamiento IPv4/IPv6 y subredes.",
-        "certs.previewBadge": "Ver en Drive",
+        "certs.previewBadge": "Ver Imagen HD",
         "certs.btnDriveCert": "Ver Certificado (Drive)",
         "certs.btnImg": "Ver Imagen HD",
+        "certs.lightboxExternal": "Abrir pestaña",
 
         // Footer
         "footer.desc": "© 2026 Curriculum Vitae Web · Desarrollado con arquitectura editorial cálida (Ocre & Ámbar).",
@@ -2303,9 +2462,10 @@
         "certs.c2.desc": "Switch configuration, VLANs, static routing protocols, and wireless LANs.",
         "certs.c3.meta": "Cisco Networking Academy · Jan 2023",
         "certs.c3.desc": "Network architecture, OSI/TCP-IP models, IPv4/IPv6 addressing, and subnetting.",
-        "certs.previewBadge": "View on Drive",
+        "certs.previewBadge": "View HD Image",
         "certs.btnDriveCert": "View Certificate (Drive)",
         "certs.btnImg": "View HD Image",
+        "certs.lightboxExternal": "Open in tab",
 
         // Footer
         "footer.desc": "© 2026 Web Curriculum Vitae · Designed with warm editorial styling (Ochre & Amber).",
@@ -2380,6 +2540,68 @@
       // 2. Cargar idioma preferido (por defecto: es)
       const savedLang = localStorage.getItem('preferred_lang') || 'es';
       setLanguage(savedLang);
+
+      // 3. Inicializar Lightbox para Certificados
+      const lightbox = document.getElementById('certLightbox');
+      const lightboxImg = document.getElementById('certLightboxImg');
+      const lightboxTitle = document.getElementById('certLightboxTitle')?.querySelector('span');
+      const lightboxExternal = document.getElementById('certLightboxExternal');
+      const lightboxClose = document.getElementById('certLightboxClose');
+
+      function openLightbox(src, title) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = title || 'Certificado Oficial';
+        if (lightboxTitle) lightboxTitle.textContent = title || 'Certificado';
+        if (lightboxExternal) lightboxExternal.href = src;
+        lightbox.style.display = 'flex';
+        // Forzar reflujo para transición suave
+        void lightbox.offsetWidth;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          if (!lightbox.classList.contains('active')) {
+            lightbox.style.display = 'none';
+          }
+        }, 250);
+      }
+
+      document.querySelectorAll('.cert-preview-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          // Si el usuario presiona Ctrl, Cmd, Shift o click central, abre en pestaña normalmente
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          const src = link.getAttribute('href');
+          const title = link.getAttribute('data-cert-title') || link.getAttribute('title') || 'Certificado Oficial';
+          openLightbox(src, title);
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
     });
   </script>
 
