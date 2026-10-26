@@ -1000,6 +1000,226 @@
       background: rgba(18, 16, 14, 0.92);
       color: var(--ochre-light);
     }
+    /* Project Captures Gallery */
+    .project-gallery {
+      margin: 14px 0 16px;
+    }
+
+    .project-gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .project-gallery-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-gallery-hint {
+      font-size: 0.72rem;
+      color: var(--ochre-primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-captures-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .project-capture-item {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      border-radius: var(--radius-sm);
+      margin: 0 !important;
+    }
+
+    .project-capture-wrapper {
+      position: relative;
+      height: 120px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-warm);
+      background: #f8f4ed;
+      cursor: zoom-in;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-theme="dark"] .project-capture-wrapper {
+      background: #14110e;
+      border-color: rgba(180, 83, 9, 0.22);
+    }
+
+    .project-capture-item:hover .project-capture-wrapper {
+      border-color: var(--ochre-primary);
+      box-shadow: 0 6px 18px var(--ochre-glow);
+    }
+
+    .project-capture-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .project-capture-item:hover .project-capture-img {
+      transform: scale(1.04);
+    }
+
+    .project-capture-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border-warm);
+      color: var(--ochre-primary);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      pointer-events: none;
+    }
+
+    [data-theme="dark"] .project-capture-badge {
+      background: rgba(18, 16, 14, 0.92);
+      color: var(--ochre-light);
+    }
+
+    .project-capture-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.2s ease;
+    }
+
+    .project-capture-item:hover .project-capture-label {
+      color: var(--ochre-primary);
+    }
+
+    @media (max-width: 480px) {
+      .project-captures-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .project-capture-wrapper {
+        height: 105px;
+      }
+    }
+
+    .cert-lightbox-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .cert-lightbox-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--ochre-glow);
+      color: var(--ochre-primary);
+      border: 1px solid var(--border-warm);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cert-lightbox-footer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      border-top: 1px solid var(--border-warm);
+      background: var(--bg-inset-subtle);
+      gap: 12px;
+    }
+
+    .cert-lightbox-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cert-lightbox-nav-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .cert-lightbox-nav-btn:hover {
+      background: var(--ochre-glow);
+      border-color: var(--ochre-primary);
+      color: var(--ochre-primary);
+    }
+
+    .cert-lightbox-counter {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ochre-primary);
+      padding: 0 4px;
+    }
+
+    .cert-lightbox-tip {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .cert-lightbox-tip {
+        display: none;
+      }
+      .cert-lightbox-footer {
+        justify-content: center;
+      }
+    }
 
     /* Modal Lightbox para Certificados en HD */
     .cert-lightbox {
@@ -1411,6 +1631,31 @@
       .cert-preview-badge {
         display: none !important;
       }
+      .project-gallery {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin: 8px 0 !important;
+      }
+
+      .project-captures-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+      }
+
+      .project-capture-wrapper {
+        height: 70px !important;
+        border: 1px solid #d1d5db !important;
+        background: #fafafa !important;
+      }
+
+      .project-capture-badge {
+        display: none !important;
+      }
+
+      .project-capture-label {
+        font-size: 6.8pt !important;
+        color: #374151 !important;
+      }
 
       @page {
         margin: 1.2cm;
@@ -1817,6 +2062,81 @@
               subflujo desacoplado para parsing de hojas de cálculo binarias (.xlsx/.csv), con ciclo DevOps auto-sanador
               en Azure.
             </p>
+
+            <!-- Capturas de Arquitectura & Ejecución en Vivo -->
+            <div class="project-gallery">
+              <div class="project-gallery-header">
+                <span class="project-gallery-title">
+                  <i class="fa-solid fa-images text-ochre"></i>
+                  <span data-i18n="proj.p1.galleryTitle">Arquitectura & Flujos en Vivo</span>
+                </span>
+                <span class="project-gallery-hint">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                  <span data-i18n="proj.p1.zoomTip">Clic para ampliar HD</span>
+                </span>
+              </div>
+              <div class="project-captures-grid" role="group" aria-label="Capturas del proyecto n8n">
+                <!-- Captura 1: Agente Principal -->
+                <a href="assets/n8n/n8n_agent_tools.png" class="project-capture-item cert-preview-link"
+                  data-gallery="n8n"
+                  data-cert-title="Flujo Principal: AI Agent ReAct con 19+ Tools"
+                  data-cert-category="Flujo n8n"
+                  data-cert-icon="fa-solid fa-network-wired"
+                  title="Ver Flujo Principal en HD">
+                  <div class="project-capture-wrapper">
+                    <img src="assets/n8n/n8n_agent_tools.png" alt="Flujo Principal de n8n con agente de IA y herramientas conectadas"
+                      class="project-capture-img" loading="lazy">
+                    <span class="project-capture-badge"><i class="fa-solid fa-expand"></i> <span data-i18n="proj.p1.cap1.badge">Flujo n8n</span></span>
+                  </div>
+                  <span class="project-capture-label" data-i18n="proj.p1.cap1.label">Flujo Agente (19+ Tools)</span>
+                </a>
+
+                <!-- Captura 2: Agente Sanador (DevOps) -->
+                <a href="assets/n8n/n8n_devops_sanador.png" class="project-capture-item cert-preview-link"
+                  data-gallery="n8n"
+                  data-cert-title="Flujo DevOps: Agente Sanador Autónomo (Auto-Repair)"
+                  data-cert-category="Flujo n8n"
+                  data-cert-icon="fa-solid fa-screwdriver-wrench"
+                  title="Ver Agente Sanador DevOps en HD">
+                  <div class="project-capture-wrapper">
+                    <img src="assets/n8n/n8n_devops_sanador.png" alt="Flujo DevOps de Agente Sanador en n8n para auto-reparación de servicios"
+                      class="project-capture-img" loading="lazy">
+                    <span class="project-capture-badge"><i class="fa-solid fa-expand"></i> <span data-i18n="proj.p1.cap2.badge">Flujo n8n</span></span>
+                  </div>
+                  <span class="project-capture-label" data-i18n="proj.p1.cap2.label">Flujo Agente Sanador</span>
+                </a>
+
+                <!-- Captura 3: Telegram Briefing Matutino -->
+                <a href="assets/n8n/telegram_daily_briefing.png" class="project-capture-item cert-preview-link"
+                  data-gallery="n8n"
+                  data-cert-title="Telegram Bot: Briefing Matutino y Chequeo de Salud"
+                  data-cert-category="Telegram Bot"
+                  data-cert-icon="fa-brands fa-telegram"
+                  title="Ver Interacción Telegram Bot en HD">
+                  <div class="project-capture-wrapper">
+                    <img src="assets/n8n/telegram_daily_briefing.png" alt="Reporte matutino en Telegram con estado de servicios, clima y tareas"
+                      class="project-capture-img" loading="lazy">
+                    <span class="project-capture-badge"><i class="fa-solid fa-expand"></i> <span data-i18n="proj.p1.cap3.badge">Telegram Bot</span></span>
+                  </div>
+                  <span class="project-capture-label" data-i18n="proj.p1.cap3.label">Briefing Matutino en Vivo</span>
+                </a>
+
+                <!-- Captura 4: Telegram Ejecución de Tools y Fallback -->
+                <a href="assets/n8n/telegram_tools_execution.png" class="project-capture-item cert-preview-link"
+                  data-gallery="n8n"
+                  data-cert-title="Telegram Bot: Recuperación de Errores y Consulta Gmail"
+                  data-cert-category="Telegram Bot"
+                  data-cert-icon="fa-brands fa-telegram"
+                  title="Ver Manejo de Errores y Consulta de Tools en HD">
+                  <div class="project-capture-wrapper">
+                    <img src="assets/n8n/telegram_tools_execution.png" alt="Manejo dinámico de fallos de credenciales y consulta en vivo de Gmail"
+                      class="project-capture-img" loading="lazy">
+                    <span class="project-capture-badge"><i class="fa-solid fa-expand"></i> <span data-i18n="proj.p1.cap4.badge">Telegram Bot</span></span>
+                  </div>
+                  <span class="project-capture-label" data-i18n="proj.p1.cap4.label">Ejecución de Tools (Gmail)</span>
+                </a>
+              </div>
+            </div>
           </div>
           <div>
             <div class="tag-cloud">
@@ -2058,7 +2378,7 @@
             <div class="info-title">Partner: NDG Linux Essentials</div>
             <div class="info-sub" data-i18n="certs.c1.desc">Administración del sistema, línea de comandos bash y
               permisos.</div>
-            <a href="assets/certs/cert_ndg_linux.png" target="_blank" class="cert-preview-link"
+            <a href="assets/certs/cert_ndg_linux.png" target="_blank" class="cert-preview-link" data-gallery="certs" data-cert-category="Certificación" data-cert-icon="fa-solid fa-certificate"
               title="Ver Certificado en HD" data-cert-title="Partner: NDG Linux Essentials">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ndg_linux.png" alt="Certificado Partner: NDG Linux Essentials"
@@ -2084,7 +2404,7 @@
             <div class="info-title">CCNAv7: Switching, Routing, and Wireless Essentials</div>
             <div class="info-sub" data-i18n="certs.c2.desc">Configuración de switches, VLANs, enrutamiento estático y
               redes inalámbricas.</div>
-            <a href="assets/certs/cert_ccna_switching.png" target="_blank" class="cert-preview-link"
+            <a href="assets/certs/cert_ccna_switching.png" target="_blank" class="cert-preview-link" data-gallery="certs" data-cert-category="Certificación" data-cert-icon="fa-solid fa-certificate"
               title="Ver Certificado en HD" data-cert-title="CCNAv7: Switching, Routing, and Wireless Essentials">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ccna_switching.png"
@@ -2111,7 +2431,7 @@
             <div class="info-title">CCNAv7: Introduction to Networks</div>
             <div class="info-sub" data-i18n="certs.c3.desc">Arquitectura de red, modelos OSI/TCP-IP, direccionamiento
               IPv4/IPv6 y subredes.</div>
-            <a href="assets/certs/cert_ccna_intro.png" target="_blank" class="cert-preview-link"
+            <a href="assets/certs/cert_ccna_intro.png" target="_blank" class="cert-preview-link" data-gallery="certs" data-cert-category="Certificación" data-cert-icon="fa-solid fa-certificate"
               title="Ver Certificado en HD" data-cert-title="CCNAv7: Introduction to Networks">
               <div class="cert-preview-wrapper">
                 <img src="assets/certs/cert_ccna_intro.png" alt="Certificado CCNAv7: Introduction to Networks"
@@ -2148,26 +2468,46 @@
     </div>
   </footer>
 
-  <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN HD DE CERTIFICADOS -->
+  <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN HD (PROYECTOS & CERTIFICADOS) -->
   <div id="certLightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="cert-lightbox-dialog">
       <div class="cert-lightbox-header">
-        <h4 id="certLightboxTitle" class="cert-lightbox-title">
-          <i class="fa-solid fa-certificate"></i>
-          <span>Certificado</span>
-        </h4>
+        <div class="cert-lightbox-title-wrap">
+          <span class="cert-lightbox-badge" id="certLightboxBadge">HD Preview</span>
+          <h4 id="certLightboxTitle" class="cert-lightbox-title">
+            <i class="fa-solid fa-certificate" id="certLightboxIcon"></i>
+            <span>Certificado</span>
+          </h4>
+        </div>
         <div class="cert-lightbox-actions">
           <a id="certLightboxExternal" href="#" target="_blank" class="cert-lightbox-btn" title="Abrir imagen en pestaña nueva">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span data-i18n="certs.lightboxExternal">Abrir pestaña</span>
           </a>
-          <button id="certLightboxClose" class="cert-lightbox-close" type="button" aria-label="Cerrar">
+          <button id="certLightboxClose" class="cert-lightbox-close" type="button" aria-label="Cerrar modal">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
       </div>
       <div class="cert-lightbox-body">
-        <img id="certLightboxImg" class="cert-lightbox-img" src="" alt="Certificado en HD">
+        <img id="certLightboxImg" class="cert-lightbox-img" src="" alt="Visualización en HD">
+      </div>
+      <div class="cert-lightbox-footer" id="certLightboxFooter">
+        <div class="cert-lightbox-nav">
+          <button type="button" class="cert-lightbox-nav-btn" id="certLightboxPrev" aria-label="Anterior captura">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span data-i18n="lightbox.prev">Anterior</span>
+          </button>
+          <span class="cert-lightbox-counter" id="certLightboxCounter">1 / 4</span>
+          <button type="button" class="cert-lightbox-nav-btn" id="certLightboxNext" aria-label="Siguiente captura">
+            <span data-i18n="lightbox.next">Siguiente</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cert-lightbox-tip">
+          <i class="fa-solid fa-expand text-ochre"></i>
+          <span data-i18n="lightbox.tip">Visualización HD · Usa las flechas ◀ ▶ del teclado</span>
+        </div>
       </div>
     </div>
   </div>
@@ -2264,6 +2604,19 @@
         "proj.heading": "Portafolio & Desarrollo",
         "proj.p1.title": "Ecosistema de Agentes de IA en n8n",
         "proj.p1.desc": "Plataforma de IA autónoma con 25+ herramientas dinámicas ensambladas (Google Workspace, Telegram, Bóveda Segura) y un subflujo desacoplado para parsing de hojas de cálculo binarias (.xlsx/.csv), con ciclo DevOps auto-sanador en Azure.",
+        "proj.p1.galleryTitle": "Arquitectura & Flujos en Vivo",
+        "proj.p1.zoomTip": "Clic para ampliar HD",
+        "proj.p1.cap1.badge": "Flujo n8n",
+        "proj.p1.cap1.label": "Flujo Agente (19+ Tools)",
+        "proj.p1.cap2.badge": "Flujo n8n",
+        "proj.p1.cap2.label": "Flujo Agente Sanador",
+        "proj.p1.cap3.badge": "Telegram Bot",
+        "proj.p1.cap3.label": "Briefing Matutino en Vivo",
+        "proj.p1.cap4.badge": "Telegram Bot",
+        "proj.p1.cap4.label": "Ejecución de Tools (Gmail)",
+        "lightbox.prev": "Anterior",
+        "lightbox.next": "Siguiente",
+        "lightbox.tip": "Visualización HD · Usa las flechas ◀ ▶ del teclado",
         "proj.p2.title": "Módulo de Ayuda Relevia (SaaS)",
         "proj.p2.desc": "Base de conocimiento interactiva y centro de ayuda para usuarios SaaS. Desarrollado con componentes modernos, skeleton loading para carga instantánea, trazabilidad de requerimientos e indexación para búsqueda personalizada.",
         "proj.p3.title": "AVE - Agenda Virtual Escolar",
@@ -2417,6 +2770,19 @@
         "proj.heading": "Portfolio & Engineering",
         "proj.p1.title": "Enterprise n8n AI Agent Ecosystem",
         "proj.p1.desc": "Autonomous AI platform featuring 25+ assembled dynamic tools (Google Workspace, Telegram, Secret Vault) and an isolated subworkflow for parsing binary spreadsheets (.xlsx/.csv), hosted on self-healing Azure Docker infrastructure.",
+        "proj.p1.galleryTitle": "Live Architecture & Workflows",
+        "proj.p1.zoomTip": "Click to expand HD",
+        "proj.p1.cap1.badge": "n8n Workflow",
+        "proj.p1.cap1.label": "Agent Workflow (19+ Tools)",
+        "proj.p1.cap2.badge": "n8n Workflow",
+        "proj.p1.cap2.label": "DevOps Healer Agent",
+        "proj.p1.cap3.badge": "Telegram Bot",
+        "proj.p1.cap3.label": "Live Morning Briefing",
+        "proj.p1.cap4.badge": "Telegram Bot",
+        "proj.p1.cap4.label": "Tools Execution (Gmail)",
+        "lightbox.prev": "Previous",
+        "lightbox.next": "Next",
+        "lightbox.tip": "HD Preview · Use ◀ ▶ keyboard arrows to navigate",
         "proj.p2.title": "Relevia SaaS Help Center",
         "proj.p2.desc": "Interactive knowledge base and help center for SaaS users. Built with modern components, skeleton loading for instantaneous feel, requirement traceability, and indexing for custom search.",
         "proj.p3.title": "AVE - School Virtual Agenda",
@@ -2551,21 +2917,51 @@
       const savedLang = localStorage.getItem('preferred_lang') || 'es';
       setLanguage(savedLang);
 
-      // 3. Inicializar Lightbox para Certificados
+      // 3. Inicializar Lightbox para Certificados y Capturas de Proyectos
       const lightbox = document.getElementById('certLightbox');
       const lightboxImg = document.getElementById('certLightboxImg');
       const lightboxTitle = document.getElementById('certLightboxTitle')?.querySelector('span');
+      const lightboxIcon = document.getElementById('certLightboxIcon');
+      const lightboxBadge = document.getElementById('certLightboxBadge');
       const lightboxExternal = document.getElementById('certLightboxExternal');
       const lightboxClose = document.getElementById('certLightboxClose');
+      const lightboxPrev = document.getElementById('certLightboxPrev');
+      const lightboxNext = document.getElementById('certLightboxNext');
+      const lightboxCounter = document.getElementById('certLightboxCounter');
 
-      function openLightbox(src, title) {
-        if (!lightbox || !lightboxImg) return;
-        lightboxImg.src = src;
-        lightboxImg.alt = title || 'Certificado Oficial';
-        if (lightboxTitle) lightboxTitle.textContent = title || 'Certificado';
-        if (lightboxExternal) lightboxExternal.href = src;
+      let currentGalleryItems = [];
+      let currentGalleryIndex = 0;
+
+      function renderLightboxIndex(index) {
+        if (!currentGalleryItems.length) return;
+        if (index < 0) index = currentGalleryItems.length - 1;
+        if (index >= currentGalleryItems.length) index = 0;
+        currentGalleryIndex = index;
+
+        const item = currentGalleryItems[currentGalleryIndex];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.title || 'Visualización en HD';
+
+        if (lightboxTitle) lightboxTitle.textContent = item.title || 'Visualización HD';
+        if (lightboxExternal) lightboxExternal.href = item.src;
+        if (lightboxBadge) {
+          lightboxBadge.textContent = item.category || 'HD Preview';
+          lightboxBadge.style.display = item.category ? 'inline-block' : 'none';
+        }
+        if (lightboxIcon) {
+          lightboxIcon.className = item.icon || 'fa-solid fa-image';
+        }
+        if (lightboxCounter) {
+          lightboxCounter.textContent = `${currentGalleryIndex + 1} / ${currentGalleryItems.length}`;
+        }
+      }
+
+      function openLightbox(items, startIndex = 0) {
+        if (!lightbox || !lightboxImg || !items || !items.length) return;
+        currentGalleryItems = items;
+        renderLightboxIndex(startIndex);
+
         lightbox.style.display = 'flex';
-        // Forzar reflujo para transición suave
         void lightbox.offsetWidth;
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
@@ -2580,24 +2976,47 @@
         setTimeout(() => {
           if (!lightbox.classList.contains('active')) {
             lightbox.style.display = 'none';
+            currentGalleryItems = [];
           }
         }, 250);
       }
 
+      function prevLightboxItem() {
+        if (currentGalleryItems.length > 1) {
+          renderLightboxIndex(currentGalleryIndex - 1);
+        }
+      }
+
+      function nextLightboxItem() {
+        if (currentGalleryItems.length > 1) {
+          renderLightboxIndex(currentGalleryIndex + 1);
+        }
+      }
+
       document.querySelectorAll('.cert-preview-link').forEach(link => {
         link.addEventListener('click', (e) => {
-          // Si el usuario presiona Ctrl, Cmd, Shift o click central, abre en pestaña normalmente
           if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
           e.preventDefault();
-          const src = link.getAttribute('href');
-          const title = link.getAttribute('data-cert-title') || link.getAttribute('title') || 'Certificado Oficial';
-          openLightbox(src, title);
+
+          const galleryName = link.getAttribute('data-gallery') || 'default';
+          const galleryLinks = Array.from(document.querySelectorAll(`.cert-preview-link[data-gallery="${galleryName}"]`));
+          const itemsToUse = galleryLinks.length ? galleryLinks : [link];
+
+          const items = itemsToUse.map(el => ({
+            src: el.getAttribute('href'),
+            title: el.getAttribute('data-cert-title') || el.getAttribute('title') || 'Visualización HD',
+            category: el.getAttribute('data-cert-category') || (galleryName === 'certs' ? 'Certificación Oficial' : 'Proyecto'),
+            icon: el.getAttribute('data-cert-icon') || (galleryName === 'certs' ? 'fa-solid fa-certificate' : 'fa-solid fa-network-wired')
+          }));
+
+          const clickedIndex = itemsToUse.indexOf(link);
+          openLightbox(items, clickedIndex >= 0 ? clickedIndex : 0);
         });
       });
 
-      if (lightboxClose) {
-        lightboxClose.addEventListener('click', closeLightbox);
-      }
+      if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightboxItem);
+      if (lightboxNext) lightboxNext.addEventListener('click', nextLightboxItem);
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 
       if (lightbox) {
         lightbox.addEventListener('click', (e) => {
@@ -2608,8 +3027,13 @@
       }
 
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') {
           closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          prevLightboxItem();
+        } else if (e.key === 'ArrowRight') {
+          nextLightboxItem();
         }
       });
     });
