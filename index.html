@@ -15,8 +15,8 @@
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
+
     /* 
       WARM EDITORIAL PALETTE (AIRY, BALANCED & CONTEMPORARY)
       Basada en Ocre, Ámbar, Terracota y Marfil Cálido.
@@ -1662,112 +1662,1332 @@
         size: letter;
       }
     }
+  
+
+    /* ==========================================================
+       GLASS DASHBOARD 2026 AESTHETIC ENHANCEMENTS
+       ========================================================== */
+    :root {
+      --glass-sidebar-bg: rgba(255, 255, 255, 0.82);
+      --glass-sidebar-shadow: 4px 0 24px rgba(45, 28, 14, 0.05);
+      --glass-card-bg: rgba(255, 255, 255, 0.72);
+      --glass-card-hover: rgba(255, 255, 255, 0.90);
+      --glass-inset: rgba(243, 238, 230, 0.75);
+      --glass-border: rgba(217, 119, 6, 0.20);
+      --glass-border-subtle: rgba(70, 45, 25, 0.08);
+      --glass-border-active: rgba(217, 119, 6, 0.55);
+      --glass-blur: blur(20px) saturate(180%);
+      --glass-card-shadow: 0 10px 30px -5px rgba(50, 30, 10, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+      
+      --bg-ambient-1: rgba(217, 119, 6, 0.08);
+      --bg-ambient-2: rgba(180, 83, 9, 0.06);
+      --bg-ambient-3: rgba(194, 65, 12, 0.04);
+    }
+
+    [data-theme="dark"] {
+      --glass-sidebar-bg: rgba(18, 14, 12, 0.82);
+      --glass-sidebar-shadow: 4px 0 32px rgba(0, 0, 0, 0.55);
+      --glass-card-bg: rgba(26, 21, 18, 0.68);
+      --glass-card-hover: rgba(36, 30, 25, 0.85);
+      --glass-inset: rgba(18, 14, 12, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.10);
+      --glass-border-subtle: rgba(255, 255, 255, 0.05);
+      --glass-border-active: rgba(245, 158, 11, 0.60);
+      --glass-blur: blur(24px) saturate(190%);
+      --glass-card-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.10) inset;
+      
+      --bg-ambient-1: rgba(217, 119, 6, 0.14);
+      --bg-ambient-2: rgba(180, 83, 9, 0.10);
+      --bg-ambient-3: rgba(194, 65, 12, 0.07);
+    }
+
+    /* Ambient background mesh */
+    body {
+      background-color: var(--bg-canvas) !important;
+      background-image: 
+        radial-gradient(ellipse 65% 55% at 5% 15%, var(--bg-ambient-1) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 45% at 95% 85%, var(--bg-ambient-2) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 35% at 50% 50%, var(--bg-ambient-3) 0%, transparent 70%) !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Glass card overrides */
+    .timeline-card,
+    .project-card,
+    .skill-card,
+    .info-card,
+    .metric-card,
+    .glass-panel {
+      background: var(--glass-card-bg) !important;
+      backdrop-filter: var(--glass-blur) !important;
+      -webkit-backdrop-filter: var(--glass-blur) !important;
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: var(--glass-card-shadow) !important;
+      border-radius: 18px !important;
+    }
+
+    .timeline-card:hover,
+    .project-card:hover,
+    .skill-card:hover,
+    .info-card:hover,
+    .metric-card:hover,
+    .glass-panel:hover {
+      border-color: var(--glass-border-active) !important;
+    }
+
+    /* Dashboard Shell Layout */
+    .dashboard-layout {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Static / Sticky Left Sidebar */
+    .dashboard-sidebar {
+      width: 330px;
+      min-width: 330px;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1.25rem;
+      background: var(--glass-sidebar-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-right: 1px solid var(--glass-border);
+      box-shadow: var(--glass-sidebar-shadow);
+      overflow-y: auto;
+      z-index: 100;
+      scrollbar-width: thin;
+      scrollbar-color: var(--ochre-warm) transparent;
+    }
+
+    .sidebar-close-btn {
+      display: none;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 1rem;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .sidebar-close-btn:hover {
+      background: var(--ochre-glow);
+      color: var(--ochre-primary);
+    }
+
+    /* Profile Avatar & Identity in Sidebar */
+    .sidebar-profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-avatar-container {
+      position: relative;
+      margin-bottom: 0.85rem;
+    }
+
+    .avatar-glass-ring {
+      position: relative;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--ochre-light), var(--ochre-warm), transparent);
+      box-shadow: 0 0 20px var(--ochre-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2px solid var(--bg-canvas);
+    }
+
+    .status-indicator-dot {
+      position: absolute;
+      bottom: 4px;
+      right: 6px;
+      width: 16px;
+      height: 16px;
+      background-color: var(--sage-green);
+      border: 3px solid var(--bg-surface);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+      animation: pulseGreen 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+      }
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+      }
+    }
+
+    .sidebar-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--sage-green);
+      background: var(--sage-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+      font-weight: 600;
+    }
+
+    .sidebar-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.45rem;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin: 0 0 0.35rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-profession {
+      font-size: 0.8rem;
+      color: var(--ochre-primary);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      line-height: 1.3;
+    }
+
+    .sidebar-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .sidebar-pill {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-inset);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.15rem 0.45rem;
+    }
+
+    /* Navigation Menu in Sidebar */
+    .dashboard-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .nav-section-label {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      padding: 0 0.5rem 0.35rem 0.5rem;
+      font-weight: 600;
+    }
+
+    .dashboard-nav-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: left;
+    }
+
+    .dashboard-nav-item .nav-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .dashboard-nav-item .nav-icon {
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+      color: var(--text-dim);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .dashboard-nav-item:hover {
+      background: var(--glass-card-hover);
+      color: var(--text-main);
+      border-color: var(--glass-border-subtle);
+      transform: translateX(3px);
+    }
+
+    .dashboard-nav-item:hover .nav-icon {
+      color: var(--ochre-light);
+      transform: scale(1.1);
+    }
+
+    .dashboard-nav-item.active {
+      background: var(--ochre-glow);
+      color: var(--ochre-primary);
+      font-weight: 700;
+      border-color: var(--glass-border-active);
+      box-shadow: 0 4px 16px var(--ochre-subtle);
+    }
+
+    .dashboard-nav-item.active .nav-icon {
+      color: var(--ochre-primary);
+    }
+
+    .nav-badge {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-inset);
+      color: var(--text-muted);
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .dashboard-nav-item.active .nav-badge {
+      background: var(--ochre-primary);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .nav-active-pill {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ochre-primary);
+      box-shadow: 0 0 8px var(--ochre-light);
+    }
+
+    /* Sidebar Contact Box */
+    .sidebar-contact-card {
+      background: var(--glass-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem;
+      margin-top: auto;
+      margin-bottom: 1.15rem;
+    }
+
+    .contact-card-title {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .sidebar-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      word-break: break-all;
+    }
+
+    .sidebar-contact-row i {
+      font-size: 0.85rem;
+      width: 16px;
+      color: var(--ochre-primary);
+      flex-shrink: 0;
+    }
+
+    a.sidebar-contact-row:hover {
+      color: var(--ochre-light);
+    }
+
+    /* Sidebar Footer Controls */
+    .sidebar-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .btn-classic-return {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 10px;
+      background: var(--bg-inset);
+      border: 1px dashed var(--border-warm);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .btn-classic-return:hover {
+      background: var(--ochre-glow);
+      color: var(--ochre-primary);
+      border-style: solid;
+      transform: translateY(-1px);
+    }
+
+    /* Main Dashboard Viewport */
+    .dashboard-main {
+      flex: 1;
+      min-width: 0;
+      padding: 2.25rem 2.75rem 4rem 2.75rem;
+      max-width: 1100px;
+    }
+
+    /* Tab View Transitions */
+    .tab-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tab-view.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: tabFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes tabFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Presentation View Styling */
+    .presentation-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .view-main-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin: 0.25rem 0 0.65rem 0;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+    }
+
+    .hero-role-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .hero-role-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ochre-primary);
+    }
+
+    .bio-glass-card {
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      border-radius: 20px;
+    }
+
+    .bio-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .bio-avatar-ring {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--ochre-light), var(--ochre-warm));
+      flex-shrink: 0;
+    }
+
+    .bio-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bio-greeting {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.55rem;
+      margin: 0 0 0.25rem 0;
+      color: var(--text-main);
+    }
+
+    .bio-meta-sub {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin: 0;
+    }
+
+    .bio-contact-chips {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Recruiter Summary Pillars Grid */
+    .executive-summary-section {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .executive-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.85rem;
+      color: var(--text-main);
+      margin: 0.25rem 0 1.25rem 0;
+    }
+
+    .executive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .executive-card {
+      padding: 1.5rem;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .executive-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--ochre-light) !important;
+      box-shadow: 0 14px 30px var(--ochre-subtle) !important;
+    }
+
+    .exec-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--ochre-glow);
+      color: var(--ochre-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-warm);
+    }
+
+    .executive-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .executive-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0 0 1.25rem 0;
+      flex-grow: 1;
+    }
+
+    .exec-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ochre-primary);
+      transition: gap 0.2s ease;
+    }
+
+    .executive-card:hover .exec-card-link {
+      gap: 0.75rem;
+    }
+
+    /* Quick Action Nav Buttons */
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .quick-nav-btn {
+      display: flex;
+      align-items: center;
+      padding: 1.15rem 1.35rem;
+      border-radius: 16px;
+      cursor: pointer;
+      text-align: left;
+      border: 1px solid var(--glass-border);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .quick-nav-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--glass-border-active);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .quick-nav-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg-inset);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ochre-primary);
+      font-size: 1.15rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .quick-nav-info {
+      flex: 1;
+    }
+
+    .quick-nav-title {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .quick-nav-desc {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .quick-nav-arrow {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-left: 0.75rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .quick-nav-btn:hover .quick-nav-arrow {
+      transform: translateX(4px);
+      color: var(--ochre-primary);
+    }
+
+    /* Accordion Experience Styles */
+    .experience-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-counter {
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-inset);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 600;
+    }
+
+    .btn-toggle-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--bg-inset);
+      border: 1px solid var(--border-warm);
+      color: var(--ochre-primary);
+      font-size: 0.8rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-all:hover {
+      background: var(--ochre-glow);
+      transform: translateY(-1px);
+    }
+
+    .section-lead-note {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .accordion-card {
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-header {
+      width: 100%;
+      cursor: pointer;
+      user-select: none;
+      padding: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .accordion-header:hover {
+      background: var(--glass-card-hover);
+    }
+
+    .accordion-header:focus-visible {
+      outline: 2px solid var(--ochre-light);
+    }
+
+    .accordion-header .exp-top-bar {
+      margin-bottom: 0 !important;
+      padding: 1.15rem 1.35rem;
+    }
+
+    .accordion-chevron-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-left: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .accordion-hint {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ochre-primary);
+      background: var(--ochre-subtle);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--ochre-glow);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .accordion-chevron {
+      font-size: 0.95rem;
+      color: var(--ochre-primary);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-card.open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-card.open .accordion-hint {
+      background: var(--ochre-glow);
+    }
+
+    .accordion-collapse {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-card.open .accordion-collapse {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-content-inner {
+      overflow: hidden;
+      padding: 0 1.35rem 1.35rem 1.35rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .accordion-content-inner .exp-highlight-quote {
+      margin-top: 1.15rem;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-top-bar {
+      display: none;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      padding: 0 1.25rem;
+      background: var(--glass-sidebar-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 90;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-menu-trigger {
+      background: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .mobile-profile-mini {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .mobile-avatar-mini {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--ochre-primary);
+    }
+
+    .mobile-name-text {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .mobile-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage-green);
+    }
+
+    .mobile-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mobile-lang-btn {
+      background: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* Mobile backdrop overlay */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 95;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .dashboard-layout {
+        flex-direction: column;
+      }
+
+      .mobile-top-bar {
+        display: flex;
+      }
+
+      .dashboard-sidebar {
+        position: fixed;
+        left: -340px;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 100;
+      }
+
+      .dashboard-sidebar.drawer-open {
+        left: 0;
+      }
+
+      .sidebar-close-btn {
+        display: flex;
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      .dashboard-main {
+        padding: 1.5rem 1.25rem 3rem 1.25rem;
+      }
+
+      .view-main-title {
+        font-size: 2.1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .dashboard-sidebar {
+        width: 85vw;
+        min-width: 280px;
+        left: -85vw;
+      }
+
+      .bio-card-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .accordion-chevron-wrap {
+        margin-left: 0.25rem;
+      }
+
+      .accordion-hint {
+        display: none;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .dashboard-sidebar,
+      .mobile-top-bar,
+      .sidebar-overlay,
+      .experience-actions,
+      .quick-nav-grid,
+      .btn-classic-return {
+        display: none !important;
+      }
+      .dashboard-main {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .tab-view {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+      }
+      .accordion-collapse {
+        grid-template-rows: 1fr !important;
+      }
+      .accordion-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- Top Action Bar -->
-  <header class="top-bar">
-    <div class="container nav-inner">
-      <div class="nav-status">
-        <span class="status-dot"></span>
-        <span data-i18n="nav.status">Disponible para Proyectos & Roles 2026</span>
+  <!-- Backdrop overlay for mobile drawer -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+
+  <!-- Mobile Top Bar (< 992px) -->
+  <header class="mobile-top-bar">
+    <button type="button" class="mobile-menu-trigger" onclick="toggleMobileSidebar()" aria-label="Abrir Menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="mobile-profile-mini">
+      <img src="assets/profile.jpg" alt="Ing. Angel Peña" class="mobile-avatar-mini">
+      <div class="mobile-name-text">
+        <span class="mobile-name">Angel Peña</span>
+        <span class="mobile-status-dot" title="Disponible"></span>
       </div>
-
-      <div class="nav-controls">
-        <!-- Switcher de Idioma -->
-        <div class="lang-switcher" role="group" aria-label="Language selector">
-          <button type="button" class="lang-btn active" id="btnLangEs" onclick="setLanguage('es')">
-            <span>🇲🇽</span> ES
-          </button>
-          <button type="button" class="lang-btn" id="btnLangEn" onclick="setLanguage('en')">
-            <span>🇺🇸</span> EN
-          </button>
-        </div>
-
-        <!-- Toggle Modo Claro / Oscuro Cálido -->
-        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()"
-          title="Cambiar tema (Claro / Oscuro)">
-          <i class="fa-solid fa-moon" id="themeIcon"></i>
-        </button>
-
-        <div class="nav-actions">
-          <a href="https://github.com/King1Angel" target="_blank" class="btn btn-primary">
-            <i class="fa-brands fa-github"></i> <span>GitHub</span>
-          </a>
-        </div>
-      </div>
+    </div>
+    <div class="mobile-controls">
+      <button type="button" class="mobile-lang-btn" onclick="toggleLanguageQuick()" id="btnLangQuick" title="Cambiar Idioma">
+        ES
+      </button>
+      <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" title="Cambiar Tema" aria-label="Cambiar Tema">
+        <i class="fa-solid fa-moon" id="mobileThemeIcon"></i>
+      </button>
     </div>
   </header>
 
-  <main class="container">
+  <!-- Dashboard Main Layout -->
+  <div class="dashboard-layout">
 
-    <!-- Hero / Profile Identity -->
-    <section class="hero">
-      <div class="hero-layout">
-        <div class="avatar-seal">
-          <img src="assets/profile.jpg" alt="Ing. Miguel Angel Peña Pech" class="avatar-photo" />
+    <!-- STATIC LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <!-- Mobile Close Button -->
+      <button type="button" class="sidebar-close-btn" onclick="closeMobileSidebar()" aria-label="Cerrar Menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Profile Avatar & Identity -->
+      <div class="sidebar-profile-card">
+        <div class="sidebar-avatar-container">
+          <div class="avatar-glass-ring">
+            <img src="assets/profile.jpg" alt="Ing. Miguel Angel Peña Pech" class="sidebar-avatar-img">
+            <span class="status-indicator-dot" title="Disponible para roles 2026"></span>
+          </div>
         </div>
 
-        <div>
-          <span class="hero-eyebrow" data-i18n="hero.eyebrow">// RESUME & TECHNICAL PROFILE • 2026 EDITION</span>
-          <h1>Miguel Angel Peña Pech</h1>
-          <div class="hero-title">
-            <span data-i18n="hero.role">Ingeniero en Desarrollo y Gestión de Software</span>
+        <div class="sidebar-status-chip">
+          <span class="status-dot"></span>
+          <span data-i18n="nav.status">Disponible para Proyectos & Roles 2026</span>
+        </div>
+
+        <h1 class="sidebar-name">Miguel Angel Peña Pech</h1>
+        <div class="sidebar-profession" data-i18n="hero.role">Ingeniero en Desarrollo y Gestión de Software</div>
+
+        <div class="sidebar-pills">
+          <span class="sidebar-pill" data-i18n="hero.badge1">Telecomunicaciones & Redes Cisco</span>
+          <span class="sidebar-pill" data-i18n="hero.badge2">AI Systems & n8n Enterprise</span>
+        </div>
+      </div>
+
+      <!-- Navigation Menu Below Photo -->
+      <nav class="dashboard-nav" role="navigation" aria-label="Menú Principal CV">
+        <div class="nav-section-label" data-i18n="nav.menuLabel">PANEL DE NAVEGACIÓN</div>
+
+        <!-- 1. Presentación (Default View) -->
+        <button type="button" class="dashboard-nav-item active" data-tab="presentation" onclick="switchTab('presentation')">
+          <div class="nav-item-left">
+            <i class="fa-solid fa-address-card nav-icon"></i>
+            <span data-i18n="nav.presentation">Presentación</span>
+          </div>
+          <span class="nav-active-pill"></span>
+        </button>
+
+        <!-- 2. Experiencia Laboral -->
+        <button type="button" class="dashboard-nav-item" data-tab="experience" onclick="switchTab('experience')">
+          <div class="nav-item-left">
+            <i class="fa-solid fa-briefcase nav-icon"></i>
+            <span data-i18n="nav.experience">Experiencia Laboral</span>
+          </div>
+          <span class="nav-badge" data-i18n="nav.badgeCountExp">5 roles</span>
+        </button>
+
+        <!-- 3. Portafolio & Desarrollo -->
+        <button type="button" class="dashboard-nav-item" data-tab="projects" onclick="switchTab('projects')">
+          <div class="nav-item-left">
+            <i class="fa-solid fa-layer-group nav-icon"></i>
+            <span data-i18n="nav.projects">Portafolio & Desarrollo</span>
+          </div>
+          <span class="nav-badge" data-i18n="nav.badgeCountProj">4 proyectos</span>
+        </button>
+
+        <!-- 4. Habilidades y Tecnologías -->
+        <button type="button" class="dashboard-nav-item" data-tab="skills" onclick="switchTab('skills')">
+          <div class="nav-item-left">
+            <i class="fa-solid fa-microchip nav-icon"></i>
+            <span data-i18n="nav.skills">Habilidades & Tecnologías</span>
+          </div>
+        </button>
+
+        <!-- 5. Educación y Certificaciones -->
+        <button type="button" class="dashboard-nav-item" data-tab="education" onclick="switchTab('education')">
+          <div class="nav-item-left">
+            <i class="fa-solid fa-graduation-cap nav-icon"></i>
+            <span data-i18n="nav.education">Educación y Certificaciones</span>
+          </div>
+          <span class="nav-badge" data-i18n="nav.badgeCountCerts">3 oficiales</span>
+        </button>
+      </nav>
+
+      <!-- Direct Contact Box -->
+      <div class="sidebar-contact-card">
+        <div class="contact-card-title" data-i18n="hero.contactTitle">Contacto Directo</div>
+        <div class="contact-list">
+          <a href="mailto:king1angel2@gmail.com" class="sidebar-contact-row" title="Enviar correo">
+            <i class="fa-solid fa-envelope"></i>
+            <span>king1angel2@gmail.com</span>
+          </a>
+          <a href="tel:+529831819047" class="sidebar-contact-row" title="Llamar teléfono">
+            <i class="fa-solid fa-phone"></i>
+            <span>(+52) 983-181-9047</span>
+          </a>
+          <div class="sidebar-contact-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <span data-i18n="hero.location">Chetumal, Quintana Roo, México</span>
+          </div>
+          <div class="sidebar-contact-row">
+            <i class="fa-solid fa-language"></i>
+            <span data-i18n="hero.english">Inglés B2 (Bilingüe Profesional)</span>
+          </div>
+          <div class="sidebar-contact-row">
+            <i class="fa-solid fa-id-card"></i>
+            <span data-i18n="hero.license">CÉDULA: 14686740</span>
+          </div>
+          <a href="https://github.com/King1Angel" target="_blank" class="sidebar-contact-row" title="Perfil en GitHub">
+            <i class="fa-brands fa-github"></i>
+            <span>github.com/King1Angel</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Controls & Reversion Option -->
+      <div class="sidebar-controls">
+        <div class="controls-row">
+          <!-- Language Switcher -->
+          <div class="lang-switcher" role="group" aria-label="Selector de Idioma">
+            <button type="button" class="lang-btn active" id="btnLangEs" onclick="setLanguage('es')">
+              <span>🇲🇽</span> ES
+            </button>
+            <button type="button" class="lang-btn" id="btnLangEn" onclick="setLanguage('en')">
+              <span>🇺🇸</span> EN
+            </button>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar tema (Claro / Oscuro)">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+          </button>
+
+          <!-- Print / PDF -->
+          <button type="button" class="theme-toggle-btn" onclick="window.print()" title="Imprimir / Guardar en PDF">
+            <i class="fa-solid fa-print"></i>
+          </button>
+        </div>
+
+        <!-- Safe Return to Original Landing Page -->
+        <a href="index.original.html" class="btn-classic-return" title="Volver a la vista landing original">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span data-i18n="nav.switchClassic">↩ Ver versión original clásica</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT VIEWPORT -->
+    <main class="dashboard-main">
+
+      <!-- ==========================================
+           VIEW 1: PRESENTACIÓN (DEFAULT VIEW)
+           ========================================== -->
+      <div class="tab-view active" id="view-presentation">
+        <div class="presentation-header">
+          <div class="section-eyebrow" data-i18n="hero.eyebrow">// RESUME & TECHNICAL PROFILE • 2026 EDITION</div>
+          <h2 class="view-main-title">Miguel Angel Peña Pech</h2>
+          <div class="hero-role-row">
+            <span class="hero-role-text" data-i18n="hero.role">Ingeniero en Desarrollo y Gestión de Software</span>
             <span class="hero-badge" data-i18n="hero.badge1">Telecomunicaciones & Redes Cisco</span>
             <span class="hero-badge" data-i18n="hero.badge2">AI Systems & n8n Enterprise</span>
           </div>
-          <p class="hero-bio" data-i18n="hero.bio">
-            Ingeniero en Desarrollo y Gestión de Software (UT Chetumal) con sólida base en telecomunicaciones, infraestructura de redes Cisco y desarrollo web. Si bien no cuento con los 3 a 5 años de experiencia tradicional que suele requerir el mercado, compenso con creces gracias a un perfil autodidacta de alto rendimiento: aprendo y domino rápidamente cualquier tecnología que me propongo, diseño y despliego sistemas en producción (como agentes autónomos de IA en n8n) y resuelvo contingencias operativas con inglés profesional bilingüe (B2).
-          </p>
+        </div>
 
-          <div class="contact-chips">
-            <span class="chip"><i class="fa-solid fa-location-dot"></i> <span data-i18n="hero.location">Chetumal,
-                Quintana Roo, México</span></span>
+        <!-- Bio Glass Panel -->
+        <div class="glass-panel bio-glass-card">
+          <div class="bio-card-header">
+            <div class="bio-avatar-ring">
+              <img src="assets/profile.jpg" alt="Ing. Miguel Angel Peña Pech" class="bio-avatar-img">
+            </div>
+            <div class="bio-header-text">
+              <h3 class="bio-greeting" data-i18n="pres.greeting">Perfil Profesional & Visión Técnica</h3>
+              <p class="bio-meta-sub">
+                <i class="fa-solid fa-graduation-cap text-ochre"></i> <span data-i18n="edu.deg1.sub">Universidad Tecnológica de Chetumal (UT Chetumal)</span> · 
+                <i class="fa-solid fa-id-badge text-ochre"></i> <span data-i18n="hero.license">CÉDULA: 14686740</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="bio-card-body">
+            <p class="hero-bio" data-i18n="hero.bio">
+              Ingeniero en Desarrollo y Gestión de Software (UT Chetumal) con sólida base en telecomunicaciones, infraestructura de redes Cisco y desarrollo web. Si bien no cuento con los 3 a 5 años de experiencia tradicional que suele requerir el mercado, compenso con creces gracias a un perfil autodidacta de alto rendimiento: aprendo y domino rápidamente cualquier tecnología que me propongo, diseño y despliego sistemas en producción (como agentes autónomos de IA en n8n) y resuelvo contingencias operativas con inglés profesional bilingüe (B2).
+            </p>
+          </div>
+
+          <div class="contact-chips bio-contact-chips">
+            <span class="chip"><i class="fa-solid fa-location-dot"></i> <span data-i18n="hero.location">Chetumal, Quintana Roo, México</span></span>
             <a href="tel:+529831819047" class="chip"><i class="fa-solid fa-phone"></i> (+52) 983-181-9047</a>
-            <a href="mailto:king1angel2@gmail.com" class="chip"><i class="fa-solid fa-envelope"></i>
-              king1angel2@gmail.com</a>
-            <a href="https://github.com/King1Angel" target="_blank" class="chip"><i class="fa-brands fa-github"></i>
-              github.com/King1Angel</a>
-            <span class="chip"><i class="fa-solid fa-language"></i> <span data-i18n="hero.english">Inglés B2 (Bilingüe
-                Profesional)</span></span>
+            <a href="mailto:king1angel2@gmail.com" class="chip"><i class="fa-solid fa-envelope"></i> king1angel2@gmail.com</a>
+            <a href="https://github.com/King1Angel" target="_blank" class="chip"><i class="fa-brands fa-github"></i> github.com/King1Angel</a>
+            <span class="chip"><i class="fa-solid fa-language"></i> <span data-i18n="hero.english">Inglés B2 (Bilingüe Profesional)</span></span>
           </div>
         </div>
+
+        <!-- Key Metrics Bento Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">1<span>+</span></div>
+            <div class="metric-label" data-i18n="metrics.years">Años de Trayectoria Técnica</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">3<span>x</span></div>
+            <div class="metric-label" data-i18n="metrics.cisco">Certificaciones Cisco Oficiales</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">25<span>+</span></div>
+            <div class="metric-label" data-i18n="metrics.ai">Herramientas de IA Ensambladas</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">B2</div>
+            <div class="metric-label" data-i18n="metrics.lang">Nivel de Inglés Comunicativo</div>
+          </div>
+        </div>
+
+        <!-- Recruiter Focus Pillars Grid -->
+        <div class="executive-summary-section">
+          <div class="section-eyebrow" data-i18n="pres.summaryEyebrow">// ENFOQUES DE ESPECIALIZACIÓN</div>
+          <h3 class="executive-heading" data-i18n="pres.summaryTitle">Pilares de Competencia Técnica</h3>
+          <div class="executive-grid">
+            <div class="executive-card glass-panel" onclick="switchTab('skills')">
+              <div class="exec-icon-badge"><i class="fa-solid fa-network-wired"></i></div>
+              <h4 data-i18n="pres.focusNet">Infraestructura & Telecomunicaciones Cisco</h4>
+              <p data-i18n="pres.focusNetDesc">
+                Configuración de routers y switches Cisco administrables, cableado estructurado en centros IDF/MDF, telefonía IP VoIP y soporte de misión crítica portuaria y judicial.
+              </p>
+              <span class="exec-card-link"><span data-i18n="skills.heading">Ver Habilidades</span> <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+
+            <div class="executive-card glass-panel" onclick="switchTab('projects')">
+              <div class="exec-icon-badge"><i class="fa-solid fa-robot"></i></div>
+              <h4 data-i18n="pres.focusAi">Agentes Autónomos de IA & DevOps</h4>
+              <p data-i18n="pres.focusAiDesc">
+                Ecosistema integral en n8n Enterprise sobre Azure Docker, orquestando 25+ herramientas dinámicas (Workspace, Telegram), parsing binario (.xlsx) y arquitectura auto-sanadora.
+              </p>
+              <span class="exec-card-link"><span data-i18n="proj.heading">Ver Portafolio</span> <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+
+            <div class="executive-card glass-panel" onclick="switchTab('experience')">
+              <div class="exec-icon-badge"><i class="fa-solid fa-code"></i></div>
+              <h4 data-i18n="pres.focusWeb">Desarrollo Web & Experiencia de Usuario</h4>
+              <p data-i18n="pres.focusWebDesc">
+                Desarrollo frontend modular con Next.js 16, React 19, TypeScript y Tailwind CSS 4 en Relevia. Enfoque riguroso en estándares ISO 9001, skeleton loading y latencia ultrabaja.
+              </p>
+              <span class="exec-card-link"><span data-i18n="exp.heading">Ver Experiencia</span> <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access Action Buttons -->
+        <div class="quick-nav-grid">
+          <button type="button" class="quick-nav-btn glass-panel" onclick="switchTab('experience')">
+            <div class="quick-nav-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="quick-nav-info">
+              <span class="quick-nav-title" data-i18n="pres.quickActionExp">Explorar Trayectoria Profesional</span>
+              <span class="quick-nav-desc" data-i18n="pres.quickActionExpDesc">5 roles en soporte, desarrollo frontend e infraestructura</span>
+            </div>
+            <i class="fa-solid fa-chevron-right quick-nav-arrow"></i>
+          </button>
+
+          <button type="button" class="quick-nav-btn glass-panel" onclick="switchTab('projects')">
+            <div class="quick-nav-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div class="quick-nav-info">
+              <span class="quick-nav-title" data-i18n="pres.quickActionProj">Ver Portafolio de Proyectos</span>
+              <span class="quick-nav-desc" data-i18n="pres.quickActionProjDesc">Ecosistema n8n, Relevia SaaS, AVE y Análisis de Datos</span>
+            </div>
+            <i class="fa-solid fa-chevron-right quick-nav-arrow"></i>
+          </button>
+        </div>
       </div>
-    </section>
 
-    <!-- Key Metrics Bento -->
-    <section>
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-value">1<span>+</span></div>
-          <div class="metric-label" data-i18n="metrics.years">Años de Trayectoria Técnica</div>
+      <!-- ==========================================
+           VIEW 2: EXPERIENCIA LABORAL (ACCORDION)
+           ========================================== -->
+      <div class="tab-view" id="view-experience">
+        <div class="section-eyebrow" data-i18n="exp.eyebrow">Trayectoria Profesional</div>
+        <div class="experience-header-row">
+          <h2 class="section-heading" data-i18n="exp.heading" style="margin-bottom: 0;">Experiencia Laboral</h2>
+          <div class="experience-actions">
+            <span class="badge-counter"><i class="fa-solid fa-briefcase"></i> <span data-i18n="nav.badgeCountExp">5 roles</span></span>
+            <button type="button" class="btn-toggle-all" onclick="toggleAllAccordion()" id="toggleAllBtn">
+              <i class="fa-solid fa-angles-down" id="toggleAllAccordionIcon"></i>
+              <span id="toggleAllAccordionText" data-i18n="exp.expandAll">Expandir Todos</span>
+            </button>
+          </div>
         </div>
-        <div class="metric-card">
-          <div class="metric-value">3<span>x</span></div>
-          <div class="metric-label" data-i18n="metrics.cisco">Certificaciones Cisco Oficiales</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value">25<span>+</span></div>
-          <div class="metric-label" data-i18n="metrics.ai">Herramientas de IA Ensambladas</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value">B2</div>
-          <div class="metric-label" data-i18n="metrics.lang">Nivel de Inglés Comunicativo</div>
-        </div>
-      </div>
-    </section>
+        <p class="section-lead-note" data-i18n="exp.leadNote">
+          Haz clic en cualquier posición para desplegar los logros técnicos, responsabilidades y tecnologías empleadas.
+        </p>
 
-    <!-- Professional Experience (Renovada & Dinámica) -->
-    <section id="experience">
-      <div class="section-eyebrow" data-i18n="exp.eyebrow">Trayectoria Profesional</div>
-      <h2 class="section-heading" data-i18n="exp.heading">Experiencia Laboral</h2>
-
-      <div class="timeline">
-        <!-- 1. APIQROO -->
-        <article class="timeline-card">
-          <div class="exp-top-bar">
+        <div class="timeline accordion-timeline">
+        <article class="timeline-card accordion-card" id="exp-card-1">
+          <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion('exp-card-1')" onkeydown="handleAccordionKey(event, 'exp-card-1')" aria-expanded="false" aria-controls="exp-body-1">
+            <div class="exp-top-bar">
             <div class="exp-title-block">
               <div class="exp-icon-box">
                 <i class="fa-solid fa-network-wired"></i>
@@ -1780,9 +3000,16 @@
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> <span
                 data-i18n="exp.apiqroo.period">Agosto 2026 — Actual</span></span>
+          
+            <div class="accordion-chevron-wrap">
+              <span class="accordion-hint" data-i18n="exp.clickToExpand">Ver detalles</span>
+              <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+            </div>
           </div>
-
-          <div class="exp-highlight-quote" data-i18n="exp.apiqroo.highlight">
+          </div>
+          <div class="accordion-collapse" id="exp-body-1">
+            <div class="accordion-content-inner">
+              <div class="exp-highlight-quote" data-i18n="exp.apiqroo.highlight">
             Soporte integral a la infraestructura tecnológica y operativa portuaria en Chetumal. Mantenimiento y
             configuración de enlaces de telecomunicaciones, servidores, estaciones de trabajo y soporte técnico L1.
           </div>
@@ -1812,11 +3039,13 @@
             <span class="tag-badge">Cableado IDF / MDF</span>
             <span class="tag-badge">Soporte TI Operativo</span>
           </div>
+            </div>
+          </div>
         </article>
 
-        <!-- 2. Poder Judicial -->
-        <article class="timeline-card">
-          <div class="exp-top-bar">
+        <article class="timeline-card accordion-card" id="exp-card-2">
+          <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion('exp-card-2')" onkeydown="handleAccordionKey(event, 'exp-card-2')" aria-expanded="false" aria-controls="exp-body-2">
+            <div class="exp-top-bar">
             <div class="exp-title-block">
               <div class="exp-icon-box">
                 <i class="fa-solid fa-scale-balanced"></i>
@@ -1830,9 +3059,16 @@
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> <span
                 data-i18n="exp.pj.period">Septiembre 2024 — Julio 2025</span></span>
+          
+            <div class="accordion-chevron-wrap">
+              <span class="accordion-hint" data-i18n="exp.clickToExpand">Ver detalles</span>
+              <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+            </div>
           </div>
-
-          <div class="exp-highlight-quote" data-i18n="exp.pj.highlight">
+          </div>
+          <div class="accordion-collapse" id="exp-body-2">
+            <div class="accordion-content-inner">
+              <div class="exp-highlight-quote" data-i18n="exp.pj.highlight">
             Colaboración técnica en el Departamento de Telecomunicaciones en Chetumal para la gestión, mantenimiento y
             soporte de la red institucional del Poder Judicial.
           </div>
@@ -1862,11 +3098,13 @@
             <span class="tag-badge">Switches Administrables</span>
             <span class="tag-badge">Documentación Técnica</span>
           </div>
+            </div>
+          </div>
         </article>
 
-        <!-- 3. YNBADi / Relevia SaaS -->
-        <article class="timeline-card">
-          <div class="exp-top-bar">
+        <article class="timeline-card accordion-card" id="exp-card-3">
+          <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion('exp-card-3')" onkeydown="handleAccordionKey(event, 'exp-card-3')" aria-expanded="false" aria-controls="exp-body-3">
+            <div class="exp-top-bar">
             <div class="exp-title-block">
               <div class="exp-icon-box">
                 <i class="fa-solid fa-laptop-code"></i>
@@ -1879,9 +3117,16 @@
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> <span
                 data-i18n="exp.relevia.period">Enero 2026 — Abril 2026</span></span>
+          
+            <div class="accordion-chevron-wrap">
+              <span class="accordion-hint" data-i18n="exp.clickToExpand">Ver detalles</span>
+              <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+            </div>
           </div>
-
-          <div class="exp-highlight-quote" data-i18n="exp.relevia.highlight">
+          </div>
+          <div class="accordion-collapse" id="exp-body-3">
+            <div class="accordion-content-inner">
+              <div class="exp-highlight-quote" data-i18n="exp.relevia.highlight">
             Diseño e implementación de un Módulo de Ayuda Web Interactivo integrado en la plataforma SaaS Relevia para
             sustituir manuales estáticos por interfaces de alta velocidad y autoaprendizaje.
           </div>
@@ -1932,11 +3177,13 @@
               <span class="print-url">— https://github.com/King1Angel/AngularRelevia</span>
             </a>
           </div>
+            </div>
+          </div>
         </article>
 
-        <!-- 4. IMOVEQROO -->
-        <article class="timeline-card">
-          <div class="exp-top-bar">
+        <article class="timeline-card accordion-card" id="exp-card-4">
+          <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion('exp-card-4')" onkeydown="handleAccordionKey(event, 'exp-card-4')" aria-expanded="false" aria-controls="exp-body-4">
+            <div class="exp-top-bar">
             <div class="exp-title-block">
               <div class="exp-icon-box">
                 <i class="fa-solid fa-server"></i>
@@ -1950,9 +3197,16 @@
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> <span data-i18n="exp.imove.period">Mayo
                 2024 — Agosto 2024</span></span>
+          
+            <div class="accordion-chevron-wrap">
+              <span class="accordion-hint" data-i18n="exp.clickToExpand">Ver detalles</span>
+              <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+            </div>
           </div>
-
-          <div class="exp-highlight-quote" data-i18n="exp.imove.highlight">
+          </div>
+          <div class="accordion-collapse" id="exp-body-4">
+            <div class="accordion-content-inner">
+              <div class="exp-highlight-quote" data-i18n="exp.imove.highlight">
             Diseño e implementación del "Plan de Mantenimiento para Equipos Tecnológicos", estableciendo el marco
             técnico-administrativo para la gestión preventiva y correctiva de los equipos del Instituto.
           </div>
@@ -1986,11 +3240,13 @@
                 https://drive.google.com/file/d/16kpBpjK8tKYSfSjidmPXp_LAfyzweh08/view?usp=drive_link</span>
             </a>
           </div>
+            </div>
+          </div>
         </article>
 
-        <!-- 5. Atención al Cliente / Hospitalidad Bilingüe -->
-        <article class="timeline-card">
-          <div class="exp-top-bar">
+        <article class="timeline-card accordion-card" id="exp-card-5">
+          <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion('exp-card-5')" onkeydown="handleAccordionKey(event, 'exp-card-5')" aria-expanded="false" aria-controls="exp-body-5">
+            <div class="exp-top-bar">
             <div class="exp-title-block">
               <div class="exp-icon-box">
                 <i class="fa-solid fa-globe"></i>
@@ -2003,9 +3259,16 @@
               </div>
             </div>
             <span class="timeline-period"><i class="fa-regular fa-calendar"></i> 2017 — 2022</span>
+          
+            <div class="accordion-chevron-wrap">
+              <span class="accordion-hint" data-i18n="exp.clickToExpand">Ver detalles</span>
+              <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+            </div>
           </div>
-
-          <div class="exp-highlight-quote" data-i18n="exp.hosp.highlight">
+          </div>
+          <div class="accordion-collapse" id="exp-body-5">
+            <div class="accordion-content-inner">
+              <div class="exp-highlight-quote" data-i18n="exp.hosp.highlight">
             Experiencia consolidada en relaciones públicas, resolución inmediata de contingencias y comunicación fluida
             en inglés con huéspedes y ejecutivos internacionales:
           </div>
@@ -2040,13 +3303,17 @@
               <span class="hospitality-period">2017 – 2019</span>
             </div>
           </div>
+            </div>
+          </div>
         </article>
+        </div>
       </div>
-    </section>
 
-    <!-- Projects Spotlight -->
-    <section id="projects">
-      <div class="section-eyebrow" data-i18n="proj.eyebrow">Proyectos Técnicos Destacados</div>
+      <!-- ==========================================
+           VIEW 3: PORTAFOLIO Y DESARROLLO
+           ========================================== -->
+      <div class="tab-view" id="view-projects">
+<div class="section-eyebrow" data-i18n="proj.eyebrow">Proyectos Técnicos Destacados</div>
       <h2 class="section-heading" data-i18n="proj.heading">Portafolio & Desarrollo</h2>
 
       <div class="projects-grid">
@@ -2277,11 +3544,13 @@
           </div>
         </div>
       </div>
-    </section>
+      </div>
 
-    <!-- Technical Skills Matrix -->
-    <section id="skills">
-      <div class="section-eyebrow" data-i18n="skills.eyebrow">Competencias Técnicas</div>
+      <!-- ==========================================
+           VIEW 4: HABILIDADES Y TECNOLOGÍAS
+           ========================================== -->
+      <div class="tab-view" id="view-skills">
+<div class="section-eyebrow" data-i18n="skills.eyebrow">Competencias Técnicas</div>
       <h2 class="section-heading" data-i18n="skills.heading">Habilidades & Tecnologías</h2>
 
       <div class="skills-grid">
@@ -2337,11 +3606,13 @@
           </div>
         </div>
       </div>
-    </section>
+      </div>
 
-    <!-- Education & Certifications -->
-    <section id="education">
-      <div class="section-eyebrow" data-i18n="edu.eyebrow">Formación Académica & Credenciales</div>
+      <!-- ==========================================
+           VIEW 5: EDUCACIÓN Y CERTIFICACIONES
+           ========================================== -->
+      <div class="tab-view" id="view-education">
+<div class="section-eyebrow" data-i18n="edu.eyebrow">Formación Académica & Credenciales</div>
       <h2 class="section-heading" data-i18n="edu.heading">Educación y Certificaciones</h2>
 
       <div class="split-grid">
@@ -2452,21 +3723,20 @@
           </div>
         </div>
       </div>
-    </section>
+      </div>
 
-  </main>
+      <!-- Footer -->
+      <footer style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); text-align: center;">
+        <div class="footer-stamp">Ing. Miguel Angel Peña Pech</div>
+        <p data-i18n="footer.desc">© 2026 Curriculum Vitae Web · Desarrollado con arquitectura editorial cálida (Ocre & Ámbar).</p>
+        <p style="margin-top: 6px; font-size: 0.78rem; color: var(--text-dim);" data-i18n="footer.sub">
+          Chetumal, Quintana Roo, México · Cédula Profesional: 14686740 · Inglés B2
+        </p>
+      </footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-stamp">Ing. Miguel Angel Peña Pech</div>
-      <p data-i18n="footer.desc">© 2026 Curriculum Vitae Web · Desarrollado con arquitectura editorial cálida (Ocre &
-        Ámbar).</p>
-      <p style="margin-top: 6px; font-size: 0.78rem; color: var(--text-dim);" data-i18n="footer.sub">
-        Chetumal, Quintana Roo, México · Cédula Profesional: 14686740 · Inglés B2
-      </p>
-    </div>
-  </footer>
+    </main>
+
+  </div>
 
   <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN HD (PROYECTOS & CERTIFICADOS) -->
   <div id="certLightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
@@ -2489,30 +3759,8 @@
           </button>
         </div>
       </div>
-      <div class="cert-lightbox-body">
-        <img id="certLightboxImg" class="cert-lightbox-img" src="" alt="Visualización en HD">
-      </div>
-      <div class="cert-lightbox-footer" id="certLightboxFooter">
-        <div class="cert-lightbox-nav">
-          <button type="button" class="cert-lightbox-nav-btn" id="certLightboxPrev" aria-label="Anterior captura">
-            <i class="fa-solid fa-chevron-left"></i>
-            <span data-i18n="lightbox.prev">Anterior</span>
-          </button>
-          <span class="cert-lightbox-counter" id="certLightboxCounter">1 / 4</span>
-          <button type="button" class="cert-lightbox-nav-btn" id="certLightboxNext" aria-label="Siguiente captura">
-            <span data-i18n="lightbox.next">Siguiente</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-        <div class="cert-lightbox-tip">
-          <i class="fa-solid fa-expand text-ochre"></i>
-          <span data-i18n="lightbox.tip">Visualización HD · Usa las flechas ◀ ▶ del teclado</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- SCRIPT DE INTERNACIONALIZACIÓN (ES / EN) Y TEMA -->
+  <!-- SCRIPTS DE INTERACCIÓN, DASHBOARD Y TRADUCCIÓN -->
   <script>
     // DICCIONARIO DE TRADUCCIÓN COMPLETO
     const i18nData = {
@@ -2680,6 +3928,43 @@
         // Footer
         "footer.desc": "© 2026 Curriculum Vitae Web · Desarrollado con arquitectura editorial cálida (Ocre & Ámbar).",
         "footer.sub": "Chetumal, Quintana Roo, México · Cédula Profesional: 14686740 · Inglés B2"
+      ,
+        // Dashboard & Navegación
+        "nav.menuLabel": "PANEL DE NAVEGACIÓN",
+        "nav.presentation": "Presentación",
+        "nav.experience": "Experiencia Laboral",
+        "nav.projects": "Portafolio y Desarrollo",
+        "nav.skills": "Habilidades y Tecnologías",
+        "nav.education": "Educación y Certificaciones",
+        "nav.switchClassic": "↩ Ver versión original clásica",
+        "nav.badgeCountExp": "5 roles",
+        "nav.badgeCountProj": "4 proyectos",
+        "nav.badgeCountCerts": "3 oficiales",
+        "nav.viewSwitcherBadge": "Dashboard Glass 2026",
+
+        // Accordion Experiencia
+        "exp.expandAll": "Expandir Todos",
+        "exp.collapseAll": "Contraer Todos",
+        "exp.clickToExpand": "Ver detalles",
+        "exp.leadNote": "Haz clic en cualquier posición para desplegar los logros técnicos, responsabilidades y tecnologías empleadas.",
+
+        // Vista Presentación
+        "pres.greeting": "Perfil Profesional & Visión Técnica",
+        "pres.summaryEyebrow": "// ENFOQUES DE ESPECIALIZACIÓN",
+        "pres.summaryTitle": "Pilares de Competencia Técnica",
+        "pres.focusNet": "Infraestructura & Telecomunicaciones Cisco",
+        "pres.focusNetDesc": "Configuración de routers y switches Cisco administrables, cableado estructurado en centros IDF/MDF, telefonía IP VoIP y soporte de misión crítica portuaria y judicial.",
+        "pres.focusAi": "Agentes Autónomos de IA & DevOps",
+        "pres.focusAiDesc": "Ecosistema integral en n8n Enterprise sobre Azure Docker, orquestando 25+ herramientas dinámicas (Workspace, Telegram), parsing binario (.xlsx) y arquitectura auto-sanadora.",
+        "pres.focusWeb": "Desarrollo Web & Experiencia de Usuario",
+        "pres.focusWebDesc": "Desarrollo frontend modular con Next.js 16, React 19, TypeScript y Tailwind CSS 4 en Relevia. Enfoque riguroso en estándares ISO 9001, skeleton loading y latencia ultrabaja.",
+        "pres.quickActionExp": "Explorar Trayectoria Profesional",
+        "pres.quickActionExpDesc": "5 roles en soporte, desarrollo frontend e infraestructura",
+        "pres.quickActionProj": "Ver Portafolio de Proyectos",
+        "pres.quickActionProjDesc": "Ecosistema n8n, Relevia SaaS, AVE y Análisis de Datos",
+        "pres.quickActionEdu": "Consultar Certificaciones Oficiales",
+        "pres.quickActionEduDesc": "3 certificaciones Cisco verificadas y grados académicos",
+        "hero.contactTitle": "Contacto Directo"
       },
 
       en: {
@@ -2846,6 +4131,43 @@
         // Footer
         "footer.desc": "© 2026 Web Curriculum Vitae · Designed with warm editorial styling (Ochre & Amber).",
         "footer.sub": "Chetumal, Quintana Roo, Mexico · Professional License: 14686740 · English B2"
+      ,
+        // Dashboard & Navigation
+        "nav.menuLabel": "DASHBOARD NAVIGATION",
+        "nav.presentation": "Presentation",
+        "nav.experience": "Work Experience",
+        "nav.projects": "Portfolio & Engineering",
+        "nav.skills": "Skills & Technologies",
+        "nav.education": "Education & Certifications",
+        "nav.switchClassic": "↩ View classic original landing",
+        "nav.badgeCountExp": "5 roles",
+        "nav.badgeCountProj": "4 projects",
+        "nav.badgeCountCerts": "3 official",
+        "nav.viewSwitcherBadge": "Glass Dashboard 2026",
+
+        // Accordion Experience
+        "exp.expandAll": "Expand All",
+        "exp.collapseAll": "Collapse All",
+        "exp.clickToExpand": "View details",
+        "exp.leadNote": "Click any position to expand technical achievements, responsibilities, and technologies used.",
+
+        // Presentation View
+        "pres.greeting": "Technical Profile & Executive Statement",
+        "pres.summaryEyebrow": "// SPECIALIZATION PILLARS",
+        "pres.summaryTitle": "Core Technical Competencies",
+        "pres.focusNet": "Cisco Networking & Telecommunications",
+        "pres.focusNetDesc": "Configuration of Cisco managed routers and switches, structured IDF/MDF cabling, corporate VoIP telephony, and mission-critical port and judicial connectivity.",
+        "pres.focusAi": "Autonomous AI Agents & DevOps",
+        "pres.focusAiDesc": "Production n8n Enterprise ecosystem on Azure Docker, orchestrating 25+ dynamic tools (Workspace, Telegram), binary spreadsheet parsing, and self-healing watchdog architecture.",
+        "pres.focusWeb": "Modern Software Development & UX",
+        "pres.focusWebDesc": "Modular frontend engineering with Next.js 16, React 19, TypeScript, and Tailwind CSS 4 at Relevia. Compliant with ISO 9001 standards, skeleton states, and sub-second navigation.",
+        "pres.quickActionExp": "Explore Work Experience",
+        "pres.quickActionExpDesc": "5 roles in technical support, frontend development, and infrastructure",
+        "pres.quickActionProj": "View Technical Portfolio",
+        "pres.quickActionProjDesc": "n8n AI Ecosystem, Relevia SaaS, AVE, and Data Analytics",
+        "pres.quickActionEdu": "Check Official Certifications",
+        "pres.quickActionEduDesc": "3 verified Cisco certifications and university degrees",
+        "hero.contactTitle": "Direct Contact"
       }
     };
 
@@ -2873,18 +4195,33 @@
       // Actualizar estado botones
       const btnEs = document.getElementById('btnLangEs');
       const btnEn = document.getElementById('btnLangEn');
+      const quickBtn = document.getElementById('btnLangQuick');
       if (btnEs && btnEn) {
         if (lang === 'es') {
           btnEs.classList.add('active');
           btnEn.classList.remove('active');
+          if (quickBtn) quickBtn.textContent = 'ES';
         } else {
           btnEn.classList.add('active');
           btnEs.classList.remove('active');
+          if (quickBtn) quickBtn.textContent = 'EN';
         }
       }
 
       document.documentElement.lang = lang;
       localStorage.setItem('preferred_lang', lang);
+
+      // Actualizar texto del botón toggle-all si está activo
+      const toggleAllText = document.getElementById('toggleAllAccordionText');
+      if (toggleAllText) {
+        toggleAllText.textContent = allExpanded ? (texts['exp.collapseAll'] || 'Contraer Todos') : (texts['exp.expandAll'] || 'Expandir Todos');
+      }
+    }
+
+    function toggleLanguageQuick() {
+      const current = document.documentElement.lang || 'es';
+      const target = current === 'es' ? 'en' : 'es';
+      setLanguage(target);
     }
 
     // Función para alternar modo claro / oscuro cálido
@@ -2898,15 +4235,124 @@
 
     function updateThemeIcon(theme) {
       const icon = document.getElementById('themeIcon');
-      if (!icon) return;
-      if (theme === 'dark') {
-        icon.className = 'fa-solid fa-sun';
+      const mobileIcon = document.getElementById('mobileThemeIcon');
+      const iconClass = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      if (icon) icon.className = iconClass;
+      if (mobileIcon) mobileIcon.className = iconClass;
+    }
+
+    // ==========================================
+    // DASHBOARD TAB SWITCHER LOGIC
+    // ==========================================
+    function switchTab(tabId) {
+      // 1. Update sidebar active nav item
+      document.querySelectorAll('.dashboard-nav-item').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // 2. Switch active tab view
+      document.querySelectorAll('.tab-view').forEach(view => {
+        if (view.id === 'view-' + tabId) {
+          view.classList.add('active');
+        } else {
+          view.classList.remove('active');
+        }
+      });
+
+      // 3. Update URL hash without jumping
+      if (history.pushState) {
+        history.pushState(null, null, '#' + tabId);
       } else {
-        icon.className = 'fa-solid fa-moon';
+        location.hash = '#' + tabId;
+      }
+
+      // 4. Smooth scroll to top of viewport
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 5. If mobile drawer is open, close it
+      closeMobileSidebar();
+    }
+
+    // Mobile drawer controls
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('dashboardSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (sidebar && overlay) {
+        sidebar.classList.toggle('drawer-open');
+        overlay.classList.toggle('active');
       }
     }
 
-    // Inicialización al cargar la página
+    function closeMobileSidebar() {
+      const sidebar = document.getElementById('dashboardSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (sidebar && overlay) {
+        sidebar.classList.remove('drawer-open');
+        overlay.classList.remove('active');
+      }
+    }
+
+    // ==========================================
+    // ACCORDION INTERACTION LOGIC
+    // ==========================================
+    let allExpanded = false;
+
+    function toggleAccordion(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const isOpen = card.classList.contains('open');
+      const header = card.querySelector('.accordion-header');
+
+      if (isOpen) {
+        card.classList.remove('open');
+        if (header) header.setAttribute('aria-expanded', 'false');
+      } else {
+        card.classList.add('open');
+        if (header) header.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function handleAccordionKey(event, cardId) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleAccordion(cardId);
+      }
+    }
+
+    function toggleAllAccordion() {
+      allExpanded = !allExpanded;
+      const cards = document.querySelectorAll('.accordion-card');
+      cards.forEach(card => {
+        const header = card.querySelector('.accordion-header');
+        if (allExpanded) {
+          card.classList.add('open');
+          if (header) header.setAttribute('aria-expanded', 'true');
+        } else {
+          card.classList.remove('open');
+          if (header) header.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const btnText = document.getElementById('toggleAllAccordionText');
+      const btnIcon = document.getElementById('toggleAllAccordionIcon');
+      const currentLang = document.documentElement.lang || 'es';
+      const texts = i18nData[currentLang] || i18nData.es;
+
+      if (btnText) {
+        btnText.textContent = allExpanded ? texts['exp.collapseAll'] : texts['exp.expandAll'];
+      }
+      if (btnIcon) {
+        btnIcon.className = allExpanded ? 'fa-solid fa-angles-up' : 'fa-solid fa-angles-down';
+      }
+    }
+
+    // ==========================================
+    // LIGHTBOX FOR PROJECTS & CERTIFICATES
+    // ==========================================
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Cargar tema preferido (por defecto: light cálido)
       const savedTheme = localStorage.getItem('preferred_theme') || 'light';
@@ -2917,7 +4363,16 @@
       const savedLang = localStorage.getItem('preferred_lang') || 'es';
       setLanguage(savedLang);
 
-      // 3. Inicializar Lightbox para Certificados y Capturas de Proyectos
+      // 3. Routing inicial de pestañas según hash de URL
+      const validTabs = ['presentation', 'experience', 'projects', 'skills', 'education'];
+      const initialHash = window.location.hash.replace('#', '');
+      if (validTabs.includes(initialHash)) {
+        switchTab(initialHash);
+      } else {
+        switchTab('presentation');
+      }
+
+      // 4. Inicializar Lightbox HD
       const lightbox = document.getElementById('certLightbox');
       const lightboxImg = document.getElementById('certLightboxImg');
       const lightboxTitle = document.getElementById('certLightboxTitle')?.querySelector('span');
